@@ -22,6 +22,12 @@ public class LoginPage extends BasePage {
 		clicar(By.xpath("//button[@type='submit']"));
 	}
 	
+	public void loginCompleto(String user, String pw) {
+		setUsuario(user);
+		setSenha(pw);
+		logar();
+	}
+	
 	public void clicarEsqueceuSenha() {
 		clicar(By.xpath("//*[@class='oxd-text oxd-text--p orangehrm-login-forgot-header']"));
 	}
