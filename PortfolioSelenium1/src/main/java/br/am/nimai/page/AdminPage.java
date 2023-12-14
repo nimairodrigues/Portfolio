@@ -52,6 +52,27 @@ public class AdminPage extends BasePage {
 		clicar(By.xpath("//*[@type='submit']"));
 	}
 	
+	public void search() {
+		clicar(By.xpath("//button[@type='submit']"));
+	}
+	
+	public String pegarEmployeeNameLogado() {
+		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-userdropdown-name']")).getText();
+	}
+	
+	public boolean pesquisarNaTabelaUmUsuario(String nomeDoEmpregado) {
+		List<WebElement> findElements = DriverFactory.getDriver().findElements(By.xpath("//*[@class='oxd-table-body']//*[@class='oxd-table-row oxd-table-row--with-border']/div[4]/div"));
+		boolean achou = false;
+		for(int i = 0; i < findElements.size(); i++) {
+			if(findElements.get(i).getText().contains(nomeDoEmpregado)) {
+				achou = true;
+				break;
+			}
+		}
+		return achou;
+	}
+	//*[@class='oxd-table-loader']
+	
 	public void apagarUserPorUsername(String username) {
 		obterCelula2("Username", username, "Actions", "oxd-table").findElement(By.xpath(".//i[@class='oxd-icon bi-trash']")).click();
 	}
@@ -72,13 +93,32 @@ public class AdminPage extends BasePage {
 		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-toast-start']//*[text()='Successfully Updated']")).getText();
 	}
 	
-	public String pegarRequiredDoUsername() {
-		return DriverFactory.getDriver().findElement(By.xpath("//form[@class='oxd-form']/div[1]//*[@class='oxd-grid-item oxd-grid-item--gutters'][4]//span")).getText();
+	public String pegarSpanDaSenha() {
+		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters user-password-cell']//span")).getText();
+	}
+	
+	public String pegarSpanDaSenhaConfirm() {
+		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters']//span")).getText();
+	}
+	
+	public String pegarSpanDoUserRole() {
+		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][1]//span")).getText();
+	}
+	
+	public String pegarSpanDoEmployeeName() {
+		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][2]//span")).getText();
+	}
+	
+	public String pegarSpanDoStatus() {
+		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][3]//span")).getText();
+	}
+	
+	public String pegarSpanDoUsername() {
+		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][4]//span")).getText();
 	}
 	
 	public void editarUsername(String usuarioEscolhido) {
 		escrever(By.xpath("//*[@class='oxd-form-row']//*[@class='oxd-input oxd-input--active']"), "1");
-		
 	}
 
 	public void clicarBotaoSalvarEdit() {

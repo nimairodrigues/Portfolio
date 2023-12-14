@@ -32,7 +32,7 @@ public class AdminTest extends BaseTest {
 		adminPage.selecionarComboUserRole("Admin");
 		adminPage.setEmployeeName("a");
 		adminPage.selecionarComboStatus("Enabled");
-		adminPage.setUsername("username4");
+		adminPage.setUsername("username5");
 		adminPage.setSenha("admin123");
 		adminPage.setSenhaConfirm("admin123");
 		
@@ -75,12 +75,99 @@ public class AdminTest extends BaseTest {
 		adminPage.selecionarComboStatus("Enabled");
 		adminPage.setUsername("user");
 		adminPage.setSenha("admin123");
-		
-		Thread.sleep(4000);
 		adminPage.setSenhaConfirm("admin123");
 		
 		adminPage.salvar();
 		
-		Assert.assertThat(adminPage.pegarRequiredDoUsername(), Matchers.is("Should be at least 5 characters"));
+		Assert.assertThat(adminPage.pegarSpanDoUsername(), Matchers.is("Should be at least 5 characters"));
+	}
+	
+	@Test
+	public void criarNovoUsuarioComSenha6Caracteres() throws InterruptedException {
+		adminPage.clicarAddUser();
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
+		adminPage.selecionarComboUserRole("Admin");
+		adminPage.setEmployeeName("a");
+		adminPage.selecionarComboStatus("Enabled");
+		adminPage.setUsername("usernamee1");
+		adminPage.setSenha("admin1");
+		adminPage.setSenhaConfirm("admin1");
+		
+		adminPage.salvar();
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters user-password-cell']/div//span"));
+		Assert.assertThat(adminPage.pegarSpanDaSenha(), Matchers.is("Should have at least 7 characters"));
+	}
+	
+	@Test
+	public void criarNovoUsuarioComSenhasDiferentes() throws InterruptedException {
+		adminPage.clicarAddUser();
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
+		adminPage.selecionarComboUserRole("Admin");
+		adminPage.setEmployeeName("a");
+		adminPage.selecionarComboStatus("Enabled");
+		adminPage.setUsername("usernameee1");
+		adminPage.setSenha("admin123");
+		adminPage.setSenhaConfirm("admin124");
+		
+		adminPage.salvar();
+		
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters']//span"));
+		Assert.assertThat(adminPage.pegarSpanDaSenhaConfirm(), Matchers.is("Passwords do not match"));
+	}
+	
+	@Test
+	public void criarNovoUsuarioSemDados() throws InterruptedException {
+		adminPage.clicarAddUser();
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
+		
+		adminPage.salvar();
+		
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters']//span"));
+		Assert.assertThat(adminPage.pegarSpanDoUserRole(), Matchers.is("Required"));
+		Assert.assertThat(adminPage.pegarSpanDoEmployeeName(), Matchers.is("Required"));
+		Assert.assertThat(adminPage.pegarSpanDoStatus(), Matchers.is("Required"));
+		Assert.assertThat(adminPage.pegarSpanDoUsername(), Matchers.is("Required"));
+		Assert.assertThat(adminPage.pegarSpanDaSenha(), Matchers.is("Required"));
+		Assert.assertThat(adminPage.pegarSpanDaSenhaConfirm(), Matchers.is("Required"));
+	}
+	
+	@Test
+	public void criarNovoUsuarioSemPreencherUsuarioESenha() throws InterruptedException {
+		adminPage.clicarAddUser();
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
+		adminPage.selecionarComboUserRole("Admin");
+		adminPage.setEmployeeName("a");
+		adminPage.selecionarComboStatus("Enabled");
+		
+		adminPage.salvar();
+		
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters']//span"));
+		Assert.assertThat(adminPage.pegarSpanDoUsername(), Matchers.is("Required"));
+		Assert.assertThat(adminPage.pegarSpanDaSenha(), Matchers.is("Required"));
+		Assert.assertThat(adminPage.pegarSpanDaSenhaConfirm(), Matchers.is("Required"));
+	}
+	
+	@Test
+	public void criarNovoUsuarioSemPreencherSenha() throws InterruptedException {
+		adminPage.clicarAddUser();
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
+		adminPage.selecionarComboUserRole("Admin");
+		adminPage.setEmployeeName("a");
+		adminPage.selecionarComboStatus("Enabled");
+		adminPage.setUsername("usernameee1");
+		
+		adminPage.salvar();
+		
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters']//span"));
+		Assert.assertThat(adminPage.pegarSpanDaSenha(), Matchers.is("Required"));
+		Assert.assertThat(adminPage.pegarSpanDaSenhaConfirm(), Matchers.is("Required"));
+	}
+	
+	@Test
+	public void fazerPesquisaPorGrupoAdmin() throws InterruptedException {
+		adminPage.selecionarComboUserRole("Admin");
+		adminPage.search();
+		adminPage.esperarInvisibilidadeDeElemento(By.xpath("//*[@class='oxd-table-loader']"));
+		Assert.assertThat(adminPage.pesquisarNaTabelaUmUsuario(adminPage.pegarEmployeeNameLogado()), Matchers.is(true));
 	}
 }

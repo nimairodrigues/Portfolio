@@ -271,6 +271,11 @@ public class BasePage {
 		wait.until(ExpectedConditions.presenceOfElementLocated(by));
 	}
 	
+	public void esperarInvisibilidadeDeElemento(By by) {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+	}
+	
 	public boolean existeElementoPorTexto(String texto) {
 		List<WebElement> findElements = getDriver().findElements(By.xpath("//*[text()='"+texto+"']"));
 		return findElements.size() > 0;
