@@ -38,7 +38,6 @@ public class AdminTest extends BaseTest {
 		
 		adminPage.salvar();
 		
-		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
 		Assert.assertThat(adminPage.pegarPopupSucessoSaved(), Matchers.is("Successfully Saved"));
 	}
 	
@@ -48,7 +47,6 @@ public class AdminTest extends BaseTest {
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white oxd-dialog-sheet oxd-dialog-sheet--shadow oxd-dialog-sheet--gutters orangehrm-dialog-popup']"));
 		adminPage.clicarPorTexto(" Yes, Delete ");
 		
-		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
 		Assert.assertThat(adminPage.pegarPopupSucessoDelete(), Matchers.is("Successfully Deleted"));
 	}
 	
@@ -62,7 +60,6 @@ public class AdminTest extends BaseTest {
 		adminPage.editarUsername(usuarioEscolhido);
 		Thread.sleep(1000);
 		adminPage.clicarBotaoSalvarEdit();
-		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
 		Assert.assertThat(adminPage.pegarPopupSucessoUpdated(), Matchers.is("Successfully Updated"));
 	}
 	

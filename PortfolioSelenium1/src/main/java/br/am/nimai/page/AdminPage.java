@@ -1,7 +1,5 @@
 package br.am.nimai.page;
 
-import static br.am.nimai.core.DriverFactory.getDriver;
-
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -82,14 +80,17 @@ public class AdminPage extends BasePage {
 	}
 	
 	public String pegarPopupSucessoDelete() {
-		return getDriver().findElement(By.xpath("//*[@class='oxd-toast-start']//*[text()='Successfully Deleted']")).getText();
+		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
+		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-toast-start']//*[text()='Successfully Deleted']")).getText();
 	}
 	
 	public String pegarPopupSucessoSaved() {
+		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
 		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-toast-start']//*[text()='Successfully Saved']")).getText();
 	}
 	
 	public String pegarPopupSucessoUpdated() {
+		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
 		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-toast-start']//*[text()='Successfully Updated']")).getText();
 	}
 	
@@ -125,12 +126,6 @@ public class AdminPage extends BasePage {
 		clicar(By.xpath("//*[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']"));
 		
 	}
-
-	public void test() {
-		DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-grid-2 orangehrm-full-width-grid']/div[4]/div/div[2]")).clear();
-	}
-	
-	
 
 	public String escolherUmNaoAdmin() {
 		List<WebElement> findElements = DriverFactory.getDriver().findElements(By.xpath("//*[@class='oxd-table-body']//*[@class='oxd-table-row oxd-table-row--with-border']/div[2]/div"));

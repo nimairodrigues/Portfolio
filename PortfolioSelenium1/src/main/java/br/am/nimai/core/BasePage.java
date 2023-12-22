@@ -4,10 +4,12 @@ import static br.am.nimai.core.DriverFactory.getDriver;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -356,4 +358,14 @@ public class BasePage {
 		return idColuna;
 	}
 	
+	protected void apagarElemento(By by) {
+		DriverFactory.getDriver().findElement(by).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+	}
+	
+	protected String randomNum(int qtdNum) {
+		Random aleatorio = new Random();
+		int num = aleatorio.nextInt(qtdNum);
+		String numero = Integer.toString(num); 
+		return numero;
+	}
 }
