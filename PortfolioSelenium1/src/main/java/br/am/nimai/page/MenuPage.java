@@ -17,4 +17,8 @@ public class MenuPage extends BasePage {
 	public void acessarBuzz() {
 		clicar(By.xpath("//*[@class='oxd-sidepanel-body']//*[@class='oxd-main-menu']/li[12]"));
 	}
+	
+	public void acessarRecruit() {
+		clicar(By.xpath("//*[@class='oxd-sidepanel-body']//*[@class='oxd-main-menu']/li[5]"));
+	}
 }

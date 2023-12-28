@@ -12,6 +12,7 @@ public class AdminPage extends BasePage {
 	
 	public void clicarAddUser() {
 		clicar(By.xpath("//button[@class='oxd-button oxd-button--medium oxd-button--secondary']"));
+		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
 	}
 	
 	public void selecionarComboUserRole(String role) {
@@ -69,7 +70,6 @@ public class AdminPage extends BasePage {
 		}
 		return achou;
 	}
-	//*[@class='oxd-table-loader']
 	
 	public void apagarUserPorUsername(String username) {
 		obterCelula2("Username", username, "Actions", "oxd-table").findElement(By.xpath(".//i[@class='oxd-icon bi-trash']")).click();
@@ -79,43 +79,33 @@ public class AdminPage extends BasePage {
 		obterCelula2("Username", username, "Actions", "oxd-table").findElement(By.xpath(".//i[@class='oxd-icon bi-pencil-fill']")).click();
 	}
 	
-	public String pegarPopupSucessoDelete() {
+	public String pegarPopupResultado() {
 		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-toast-start']//*[text()='Successfully Deleted']")).getText();
-	}
-	
-	public String pegarPopupSucessoSaved() {
-		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-toast-start']//*[text()='Successfully Saved']")).getText();
-	}
-	
-	public String pegarPopupSucessoUpdated() {
-		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-toast-start']//*[text()='Successfully Updated']")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-toast-start']//p[2]"));
 	}
 	
 	public String pegarSpanDaSenha() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters user-password-cell']//span")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters user-password-cell']//*[@class='oxd-input-group oxd-input-field-bottom-space']//span"));
 	}
 	
 	public String pegarSpanDaSenhaConfirm() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters']//span")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-form-row user-password-row']//*[@class='oxd-grid-item oxd-grid-item--gutters']//span"));
 	}
 	
 	public String pegarSpanDoUserRole() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][1]//span")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][1]//span"));
 	}
 	
 	public String pegarSpanDoEmployeeName() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][2]//span")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][2]//span"));
 	}
 	
 	public String pegarSpanDoStatus() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][3]//span")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][3]//span"));
 	}
 	
 	public String pegarSpanDoUsername() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][4]//span")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-form-row']//div[@class='oxd-grid-item oxd-grid-item--gutters'][4]//span"));
 	}
 	
 	public void editarUsername(String usuarioEscolhido) {
@@ -128,6 +118,8 @@ public class AdminPage extends BasePage {
 	}
 
 	public String escolherUmNaoAdmin() {
+		//sistema muito instavel, necessario fazer a seleçao para nao escolher um admin para criar os testes
+		
 		List<WebElement> findElements = DriverFactory.getDriver().findElements(By.xpath("//*[@class='oxd-table-body']//*[@class='oxd-table-row oxd-table-row--with-border']/div[2]/div"));
 		
 		for(int i = 0; i < findElements.size(); i++) {
@@ -135,13 +127,14 @@ public class AdminPage extends BasePage {
 		}
 		
 		if(findElements.get(0).getText().contains("Admin")) {
-			System.out.println("Admin é o primeiro.");
-			System.out.println("Pegando o próximo usuário... " + findElements.get(1).getText());
+//			System.out.println("Admin é o primeiro.");
+//			System.out.println("Pegando o próximo usuário... " + findElements.get(1).getText());
 			return findElements.get(1).getText();
 		} else {
-			System.out.println("Admin nao é o primeiro.");
-			System.out.println("Pegando o primeiro usuário... " + findElements.get(0).getText());
+//			System.out.println("Admin nao é o primeiro.");
+//			System.out.println("Pegando o primeiro usuário... " + findElements.get(0).getText());
 			return findElements.get(0).getText();
 		}
 	}
+	
 }

@@ -37,7 +37,7 @@ public class PIMTest extends BaseTest {
 		pimPage.salvar();
 		
 		pimPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
-		Assert.assertThat(pimPage.pegarPopupSucessoSaved(), Matchers.is("Successfully Saved"));
+		Assert.assertThat(pimPage.pegarPopupResultado(), Matchers.is("Successfully Saved"));
 	}
 	
 	@Test
@@ -54,7 +54,6 @@ public class PIMTest extends BaseTest {
 	
 	@Test
 	public void criarNovoEmpregadoComId10Digitos() throws InterruptedException {
-		//tentar fazer dar clear no elemento de escrita
 		pimPage.clicarAddEmployee();
 		
 		pimPage.esperarPresencaPorElemento(By.xpath("//label[@class='oxd-label oxd-input-field-required']"));
@@ -80,8 +79,8 @@ public class PIMTest extends BaseTest {
 		pimPage.escreverEmployeeId("000");
 		pimPage.salvar();
 		
+		Assert.fail("deve dar erro");
 		Assert.assertThat(pimPage.pegarSpanDoEmployeeId(), Matchers.is("ID should not be less than 1"));
-		Thread.sleep(5000);
 	}
 	
 	@Test
@@ -96,8 +95,8 @@ public class PIMTest extends BaseTest {
 		pimPage.escreverEmployeeId("-354");
 		pimPage.salvar();
 		
+		Assert.fail("deve dar erro");
 		Assert.assertThat(pimPage.pegarSpanDoEmployeeId(), Matchers.is("ID should not be less than 1"));
-		Thread.sleep(5000);
 	}
 	
 	@Test
@@ -112,8 +111,8 @@ public class PIMTest extends BaseTest {
 		pimPage.escreverEmployeeId("");
 		pimPage.salvar();
 		
+		Assert.fail("deve dar erro");
 		Assert.assertThat(pimPage.pegarSpanDoEmployeeId(), Matchers.is("Required"));
-		Thread.sleep(5000);
 	}
 	
 	@Test
@@ -136,8 +135,8 @@ public class PIMTest extends BaseTest {
 		pimPage.salvar();
 		
 		pimPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
-		Assert.assertThat(pimPage.pegarPopupSucessoSaved(), Matchers.is("Successfully Saved"));
-		Thread.sleep(5000);
+		Assert.assertThat(pimPage.pegarPopupResultado(), Matchers.is("Successfully Saved"));
+		Assert.fail("deve dar erro");
 	}
 	
 	@Test

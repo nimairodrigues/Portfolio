@@ -29,7 +29,7 @@ public class BuzzTest extends BaseTest {
 	public void fazerUmPost() throws InterruptedException {
 		buzzPage.escreverPost("Meu numero da sorte e: " + buzzPage.aleatorizarNumeros(100));
 		buzzPage.clicarPost();
-		Assert.assertThat(buzzPage.pegarPopupSucessoSaved(), Matchers.is("Successfully Saved"));
+		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Saved"));
 		Thread.sleep(5000);
 	}
 	
@@ -39,7 +39,7 @@ public class BuzzTest extends BaseTest {
 		buzzPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white oxd-dialog-sheet oxd-dialog-sheet--shadow oxd-dialog-sheet--gutters orangehrm-dialog-popup']"));
 		buzzPage.clicarPorTexto(" Yes, Delete ");
 		
-		Assert.assertThat(buzzPage.pegarPopupSucessoDelete(), Matchers.is("Successfully Deleted"));
+		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Deleted"));
 	}
 	
 	@Test
@@ -48,38 +48,28 @@ public class BuzzTest extends BaseTest {
 		buzzPage.clicarAlterarPost();
 		buzzPage.escreverEditPost();
 		buzzPage.clicarPostEdit();
-		Assert.assertThat(buzzPage.pegarPopupSucessoUpdated(), Matchers.is("Successfully Updated"));
+		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Updated"));
 	}
 	
-	@Test
-	public void tests() throws InterruptedException {
-		buzzPage.encontrarPostDeUmUsuario(buzzPage.pegarUsuarioLogado());
-		Thread.sleep(5000);
-	}
-	
-	@Test
 	public void fazerUmPostAcimaDe65530() throws InterruptedException {
 		//ficou inviavel por demorar demais pra escrever na tela
 		buzzPage.escreverPostLongo();
-//		buzzPage.clicarPost();
-		Thread.sleep(5000);
+		buzzPage.clicarPost();
 	}
 	
 	@Test
 	public void darLikeEmAlgumPost() throws InterruptedException {
-		//nao da pra garantir que haverá post likeado ou não likeado para fazer os testes divididos entre darLikeEmPost e darUnlikeEmPost
-		//melhor opcao era fazer só a interação no icone de like e verificar se a interação foi feita
 		if(buzzPage.isLikeado()) {
 			int likesAnterior = buzzPage.pegarQtdLikes();
 			System.out.println("1 caso");
-			buzzPage.clicarLikePost2();
+			buzzPage.clicarLikePost();
 			buzzPage.esperarInvisibilidadeDeElemento(By.xpath("(//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white orangehrm-buzz'])[1]//*[@class='orangehrm-buzz-post-actions']//*[@class='orangehrm-like-animation']"));
 			Assert.assertThat(buzzPage.isLikeado(), Matchers.is(false));
 			Assert.assertThat(buzzPage.pegarQtdLikes(), Matchers.is(likesAnterior - 1));
 		} else {
 			int likesAnterior = buzzPage.pegarQtdLikes();
 			System.out.println("2 caso");
-			buzzPage.clicarLikePost2();
+			buzzPage.clicarLikePost();
 			buzzPage.esperarPresencaPorElemento(By.xpath("(//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white orangehrm-buzz'])[1]//*[@class='orangehrm-buzz-post-actions']//*[@class='orangehrm-like-animation']"));
 			Assert.assertThat(buzzPage.isLikeado(), Matchers.is(true));
 			Assert.assertThat(buzzPage.pegarQtdLikes(), Matchers.is(likesAnterior + 1));
@@ -91,7 +81,7 @@ public class BuzzTest extends BaseTest {
 		buzzPage.clicarCompartilharPost();
 		buzzPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-dialog-container-default--inner']//*[@class='oxd-form']"));
 		buzzPage.clicarShare();
-		Assert.assertThat(buzzPage.pegarPopupSucessoSaved(), Matchers.is("Successfully Saved"));
+		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Saved"));
 	}
 	
 	@Test
@@ -99,7 +89,7 @@ public class BuzzTest extends BaseTest {
 		buzzPage.clicarBotaoComentar();
 		buzzPage.escreverNosComents("Legal!");
 		buzzPage.enviarComent();
-		Assert.assertThat(buzzPage.pegarPopupSucessoSaved(), Matchers.is("Successfully Saved"));
+		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Saved"));
 	}
 	
 	@Test
@@ -118,7 +108,7 @@ public class BuzzTest extends BaseTest {
 		
 		buzzPage.clicarEditComent("Incrivel!");
 		buzzPage.escreverEditComent("Incrivel!2");
-		Assert.assertThat(buzzPage.pegarPopupSucessoUpdated(), Matchers.is("Successfully Updated"));
+		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Updated"));
 		
 		buzzPage.apagarMeuComentario("Incrivel!2");
 	}
@@ -130,7 +120,8 @@ public class BuzzTest extends BaseTest {
 		buzzPage.clicarApagarComent("Incrivel!");
 		buzzPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white oxd-dialog-sheet oxd-dialog-sheet--shadow oxd-dialog-sheet--gutters orangehrm-dialog-popup']"));
 		buzzPage.clicarPorTexto(" Yes, Delete ");
-		Assert.assertThat(buzzPage.pegarPopupSucessoDelete(), Matchers.is("Successfully Deleted"));
+		
+		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Deleted"));
 		
 	}
 	

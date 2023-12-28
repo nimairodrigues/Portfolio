@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest{
 		//execucao
 		loginPage.setUsuario("Admin");
 		loginPage.setSenha("admin123");
-		loginPage.logar();
+		loginPage.clicarLogar();
 		
 		//assertiva
 		loginPage.esperarPresencaPorTexto("Dashboard");
@@ -32,7 +32,7 @@ public class LoginTest extends BaseTest{
 		//execucao
 		loginPage.setUsuario("usuarioIncorreto");
 		loginPage.setSenha("naoexiste");
-		loginPage.logar();
+		loginPage.clicarLogar();
 		
 		//assertiva
 //		loginPage.esperarPresenca("//h5[@class='oxd-text oxd-text--h5 orangehrm-login-title']");
@@ -47,7 +47,7 @@ public class LoginTest extends BaseTest{
 		//execucao
 		loginPage.setUsuario("usuarioIncorreto");
 		loginPage.setSenha("admin123");
-		loginPage.logar();
+		loginPage.clicarLogar();
 		
 		//assertiva
 		loginPage.esperarPresencaPorTexto("Login");
@@ -61,7 +61,7 @@ public class LoginTest extends BaseTest{
 		//execucao
 		loginPage.setUsuario("Admin");
 		loginPage.setSenha("senhaIncorreta");
-		loginPage.logar();
+		loginPage.clicarLogar();
 		
 		//assertiva
 		loginPage.esperarPresencaPorTexto("Login");
@@ -73,7 +73,7 @@ public class LoginTest extends BaseTest{
 		//pre condicoes
 		
 		//execucao
-		loginPage.logar();
+		loginPage.clicarLogar();
 		
 		//assertiva
 		Assert.assertThat(loginPage.existeElementoPorTexto("Required"), Matchers.is(true));
@@ -85,7 +85,7 @@ public class LoginTest extends BaseTest{
 		
 		//execucao
 		loginPage.setSenha("senhaQualquer");
-		loginPage.logar();
+		loginPage.clicarLogar();
 		
 		//assertiva
 		loginPage.esperarPresencaPorTexto("Login");
@@ -98,7 +98,7 @@ public class LoginTest extends BaseTest{
 
 		//execucao
 		loginPage.setUsuario("Nimai");
-		loginPage.logar();
+		loginPage.clicarLogar();
 		
 		//assertiva
 		loginPage.esperarPresencaPorTexto("Login");

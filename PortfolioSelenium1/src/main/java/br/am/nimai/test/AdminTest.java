@@ -28,7 +28,6 @@ public class AdminTest extends BaseTest {
 	@Test
 	public void criarNovoUsuario() throws InterruptedException {
 		adminPage.clicarAddUser();
-		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
 		adminPage.selecionarComboUserRole("Admin");
 		adminPage.setEmployeeName("a");
 		adminPage.selecionarComboStatus("Enabled");
@@ -38,7 +37,7 @@ public class AdminTest extends BaseTest {
 		
 		adminPage.salvar();
 		
-		Assert.assertThat(adminPage.pegarPopupSucessoSaved(), Matchers.is("Successfully Saved"));
+		Assert.assertThat(adminPage.pegarPopupResultado(), Matchers.is("Successfully Saved"));
 	}
 	
 	@Test
@@ -47,7 +46,7 @@ public class AdminTest extends BaseTest {
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white oxd-dialog-sheet oxd-dialog-sheet--shadow oxd-dialog-sheet--gutters orangehrm-dialog-popup']"));
 		adminPage.clicarPorTexto(" Yes, Delete ");
 		
-		Assert.assertThat(adminPage.pegarPopupSucessoDelete(), Matchers.is("Successfully Deleted"));
+		Assert.assertThat(adminPage.pegarPopupResultado(), Matchers.is("Successfully Deleted"));
 	}
 	
 	@Test
@@ -60,7 +59,7 @@ public class AdminTest extends BaseTest {
 		adminPage.editarUsername(usuarioEscolhido);
 		Thread.sleep(1000);
 		adminPage.clicarBotaoSalvarEdit();
-		Assert.assertThat(adminPage.pegarPopupSucessoUpdated(), Matchers.is("Successfully Updated"));
+		Assert.assertThat(adminPage.pegarPopupResultado(), Matchers.is("Successfully Updated"));
 	}
 	
 	@Test
@@ -167,4 +166,5 @@ public class AdminTest extends BaseTest {
 		adminPage.esperarInvisibilidadeDeElemento(By.xpath("//*[@class='oxd-table-loader']"));
 		Assert.assertThat(adminPage.pesquisarNaTabelaUmUsuario(adminPage.pegarEmployeeNameLogado()), Matchers.is(true));
 	}
+	
 }

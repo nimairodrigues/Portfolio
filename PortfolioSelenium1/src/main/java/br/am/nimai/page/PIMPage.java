@@ -1,7 +1,6 @@
 package br.am.nimai.page;
 
 import java.util.List;
-import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -32,20 +31,21 @@ public class PIMPage extends BasePage {
 		clicar(By.xpath("//button[@type='submit']"));
 	}
 	
-	public String pegarPopupSucessoSaved() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-toast-start']//*[text()='Successfully Saved']")).getText();
+	public String pegarPopupResultado() {
+		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
+		return obterTexto(By.xpath("//*[@class='oxd-toast-start']//p[2]"));
 	}
 	
 	public String pegarRequiredDoFirstName() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='--name-grouped-field']/div[1]/span")).getText();
+		return obterTexto(By.xpath("//*[@class='--name-grouped-field']/div[1]/span"));
 	}
 	
 	public String pegarRequiredDoLastName() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='--name-grouped-field']/div[3]/span")).getText();
+		return obterTexto(By.xpath("//*[@class='--name-grouped-field']/div[3]/span"));
 	}
 	
 	public String pegarSpanDoEmployeeId() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-grid-2 orangehrm-full-width-grid']//div[@class='oxd-input-group oxd-input-field-bottom-space']/span")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-grid-2 orangehrm-full-width-grid']//div[@class='oxd-input-group oxd-input-field-bottom-space']/span"));
 	}
 	
 	public void clicarBotaoCriarDetalhesLogin() {
@@ -66,22 +66,19 @@ public class PIMPage extends BasePage {
 	}
 
 	public String pegarSpanUsername() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row'][2]/div/div[1]//span")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-form-row'][2]/div/div[1]//span"));
 	}
 
 	public String pegarSpanPassword() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row user-password-row']/div/div[1]//span")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-form-row user-password-row']/div/div[1]//span"));
 	}
 
 	public String pegarSpanConfirmPassword() {
-		return DriverFactory.getDriver().findElement(By.xpath("//*[@class='oxd-form-row user-password-row']/div/div[2]//span")).getText();
+		return obterTexto(By.xpath("//*[@class='oxd-form-row user-password-row']/div/div[2]//span"));
 	}
 	
 	public String pegarNumeroAleatorioId() {
-		Random aleatorio = new Random();
-		int num = aleatorio.nextInt(99999);
-		String numero = Integer.toString(num); 
-		return numero;
+		return randomNum(99999);
 	}
 	
 	public void clicarBotaoSuporte() {
