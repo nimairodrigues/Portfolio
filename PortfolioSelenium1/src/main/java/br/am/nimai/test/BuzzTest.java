@@ -51,6 +51,7 @@ public class BuzzTest extends BaseTest {
 		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Updated"));
 	}
 	
+	@Test
 	public void fazerUmPostAcimaDe65530() throws InterruptedException {
 		//ficou inviavel por demorar demais pra escrever na tela
 		buzzPage.escreverPostLongo();

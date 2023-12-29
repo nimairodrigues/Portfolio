@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 	
-/********* TextField e TextArea ************/
+    /*** TextField e TextArea ***/
 	
 	protected void escrever(By by, String texto){
 		getDriver().findElement(by).clear();
