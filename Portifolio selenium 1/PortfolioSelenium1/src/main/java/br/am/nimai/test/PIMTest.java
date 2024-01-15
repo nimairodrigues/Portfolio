@@ -136,7 +136,6 @@ public class PIMTest extends BaseTest {
 		
 		pimPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
 		Assert.assertThat(pimPage.pegarPopupResultado(), Matchers.is("Successfully Saved"));
-		Assert.fail("deve dar erro");
 	}
 	
 	@Test
