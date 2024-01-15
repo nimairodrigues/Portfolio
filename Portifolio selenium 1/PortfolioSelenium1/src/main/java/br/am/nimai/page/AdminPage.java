@@ -110,6 +110,7 @@ public class AdminPage extends BasePage {
 	
 	public void editarUsername(String usuarioEscolhido) {
 		escrever(By.xpath("//*[@class='oxd-form-row']//*[@class='oxd-input oxd-input--active']"), "1");
+		esperarInvisibilidadeDeElemento(By.xpath("//div[@class='oxd-form-loader']"));
 	}
 
 	public void clicarBotaoSalvarEdit() {
@@ -117,24 +118,16 @@ public class AdminPage extends BasePage {
 		
 	}
 
-	public String escolherUmNaoAdmin() {
-		//sistema muito instavel, necessario fazer a seleçao para nao escolher um admin para criar os testes
+	public void criarNovoUser(String user) {
+		clicarAddUser();
+		selecionarComboUserRole("Admin");
+		setEmployeeName("a");
+		selecionarComboStatus("Enabled");
+		setUsername(user);
+		setSenha("admin123");
+		setSenhaConfirm("admin123");
 		
-		List<WebElement> findElements = DriverFactory.getDriver().findElements(By.xpath("//*[@class='oxd-table-body']//*[@class='oxd-table-row oxd-table-row--with-border']/div[2]/div"));
-		
-		for(int i = 0; i < findElements.size(); i++) {
-//			System.out.println("Usuario " + i + ": " + findElements.get(i).getText());
-		}
-		
-		if(findElements.get(0).getText().contains("Admin")) {
-//			System.out.println("Admin é o primeiro.");
-//			System.out.println("Pegando o próximo usuário... " + findElements.get(1).getText());
-			return findElements.get(1).getText();
-		} else {
-//			System.out.println("Admin nao é o primeiro.");
-//			System.out.println("Pegando o primeiro usuário... " + findElements.get(0).getText());
-			return findElements.get(0).getText();
-		}
+		salvar();
 	}
 	
 }

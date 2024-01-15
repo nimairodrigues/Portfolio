@@ -42,7 +42,11 @@ public class AdminTest extends BaseTest {
 	
 	@Test
 	public void apagarUsuario() {
-		adminPage.apagarUserPorUsername(adminPage.escolherUmNaoAdmin());
+		String randomNum = adminPage.randomNum(1000);
+		adminPage.criarNovoUser("username"+randomNum);
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[text()='username"+randomNum+"']"));
+		
+		adminPage.apagarUserPorUsername("username"+randomNum);
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white oxd-dialog-sheet oxd-dialog-sheet--shadow oxd-dialog-sheet--gutters orangehrm-dialog-popup']"));
 		adminPage.clicarPorTexto(" Yes, Delete ");
 		
@@ -51,13 +55,14 @@ public class AdminTest extends BaseTest {
 	
 	@Test
 	public void editarUsuario() throws InterruptedException {
-		String usuarioEscolhido = adminPage.escolherUmNaoAdmin();
-		adminPage.editarUserPorUsername(usuarioEscolhido);
-		adminPage.esperarPresencaPorElemento(By.xpath("//button[@type='submit']"));
-		//achar outro elemento para esperar a presenca, aqui ele ta escrevendo antes de carregar o texto escrito no site
-		Thread.sleep(1000);
-		adminPage.editarUsername(usuarioEscolhido);
-		Thread.sleep(1000);
+		String randomNum = adminPage.randomNum(1000);
+		adminPage.criarNovoUser("username"+randomNum);
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[text()='username"+randomNum+"']"));
+		
+		adminPage.editarUserPorUsername("username"+randomNum);
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-label']"));
+		
+		adminPage.editarUsername("username"+randomNum);
 		adminPage.clicarBotaoSalvarEdit();
 		Assert.assertThat(adminPage.pegarPopupResultado(), Matchers.is("Successfully Updated"));
 	}
