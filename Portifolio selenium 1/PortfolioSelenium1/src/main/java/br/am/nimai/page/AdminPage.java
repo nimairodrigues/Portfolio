@@ -128,6 +128,7 @@ public class AdminPage extends BasePage {
 		setSenhaConfirm("admin123");
 		
 		salvar();
+		
 	}
 	
 }

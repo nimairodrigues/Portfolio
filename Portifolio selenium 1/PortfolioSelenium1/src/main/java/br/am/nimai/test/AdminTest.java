@@ -26,7 +26,7 @@ public class AdminTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoUsuario() throws InterruptedException {
+	public void id_13_criarNovoUsuario() throws InterruptedException {
 		adminPage.clicarAddUser();
 		adminPage.selecionarComboUserRole("Admin");
 		adminPage.setEmployeeName("a");
@@ -41,7 +41,7 @@ public class AdminTest extends BaseTest {
 	}
 	
 	@Test
-	public void apagarUsuario() {
+	public void id_14_apagarUsuario() {
 		String randomNum = adminPage.randomNum(1000);
 		adminPage.criarNovoUser("username"+randomNum);
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[text()='username"+randomNum+"']"));
@@ -54,7 +54,7 @@ public class AdminTest extends BaseTest {
 	}
 	
 	@Test
-	public void editarUsuario() throws InterruptedException {
+	public void id_15_editarUsuario() throws InterruptedException {
 		String randomNum = adminPage.randomNum(1000);
 		adminPage.criarNovoUser("username"+randomNum);
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[text()='username"+randomNum+"']"));
@@ -68,7 +68,7 @@ public class AdminTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoUsuarioCom5Caracteres() throws InterruptedException {
+	public void id_16_criarNovoUsuarioCom5Caracteres() throws InterruptedException {
 		adminPage.clicarAddUser();
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
 		adminPage.selecionarComboUserRole("Admin");
@@ -84,7 +84,7 @@ public class AdminTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoUsuarioComSenha6Caracteres() throws InterruptedException {
+	public void id_17_criarNovoUsuarioComSenha6Caracteres() throws InterruptedException {
 		adminPage.clicarAddUser();
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
 		adminPage.selecionarComboUserRole("Admin");
@@ -100,7 +100,7 @@ public class AdminTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoUsuarioComSenhasDiferentes() throws InterruptedException {
+	public void id_18_criarNovoUsuarioComSenhasDiferentes() throws InterruptedException {
 		adminPage.clicarAddUser();
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
 		adminPage.selecionarComboUserRole("Admin");
@@ -117,7 +117,7 @@ public class AdminTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoUsuarioSemDados() throws InterruptedException {
+	public void id_19_criarNovoUsuarioSemDados() throws InterruptedException {
 		adminPage.clicarAddUser();
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
 		
@@ -133,7 +133,7 @@ public class AdminTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoUsuarioSemPreencherUsuarioESenha() throws InterruptedException {
+	public void id_20_criarNovoUsuarioSemPreencherUsuarioESenha() throws InterruptedException {
 		adminPage.clicarAddUser();
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
 		adminPage.selecionarComboUserRole("Admin");
@@ -149,7 +149,7 @@ public class AdminTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoUsuarioSemPreencherSenha() throws InterruptedException {
+	public void id_21_criarNovoUsuarioSemPreencherSenha() throws InterruptedException {
 		adminPage.clicarAddUser();
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-select-wrapper']"));
 		adminPage.selecionarComboUserRole("Admin");
@@ -165,7 +165,7 @@ public class AdminTest extends BaseTest {
 	}
 	
 	@Test
-	public void fazerPesquisaPorGrupoAdmin() throws InterruptedException {
+	public void id_22_fazerPesquisaPorGrupoAdmin() throws InterruptedException {
 		adminPage.selecionarComboUserRole("Admin");
 		adminPage.search();
 		adminPage.esperarInvisibilidadeDeElemento(By.xpath("//*[@class='oxd-table-loader']"));

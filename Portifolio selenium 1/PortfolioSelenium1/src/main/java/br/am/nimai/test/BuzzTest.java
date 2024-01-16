@@ -26,7 +26,7 @@ public class BuzzTest extends BaseTest {
 	}
 	
 	@Test
-	public void fazerUmPost() throws InterruptedException {
+	public void id_33_fazerUmPost() throws InterruptedException {
 		buzzPage.escreverPost("Meu numero da sorte e: " + buzzPage.aleatorizarNumeros(100));
 		buzzPage.clicarPost();
 		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Saved"));
@@ -34,7 +34,7 @@ public class BuzzTest extends BaseTest {
 	}
 	
 	@Test
-	public void apagarUmPost() {
+	public void id_34_apagarUmPost() {
 		buzzPage.clicarApagarPost();
 		buzzPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white oxd-dialog-sheet oxd-dialog-sheet--shadow oxd-dialog-sheet--gutters orangehrm-dialog-popup']"));
 		buzzPage.clicarPorTexto(" Yes, Delete ");
@@ -43,7 +43,7 @@ public class BuzzTest extends BaseTest {
 	}
 	
 	@Test
-	public void alterarUmPost() throws InterruptedException {
+	public void id_35_alterarUmPost() throws InterruptedException {
 		//nomes de usuarios que contem nos post pode mudar tendo um middle name
 		buzzPage.clicarAlterarPost();
 		buzzPage.escreverEditPost();
@@ -52,14 +52,14 @@ public class BuzzTest extends BaseTest {
 	}
 	
 	@Test
-	public void fazerUmPostAcimaDe65530() throws InterruptedException {
-		//ficou inviavel por demorar demais pra escrever na tela
+	public void id_36_fazerUmPostAcimaDe65530() throws InterruptedException {
 		buzzPage.escreverPostLongo();
 		buzzPage.clicarPost();
+		Assert.fail("Inviavel por demorar demais para escrever na tela");
 	}
 	
 	@Test
-	public void darLikeEmAlgumPost() throws InterruptedException {
+	public void id_37_e_38_darLikeEmAlgumPost() throws InterruptedException {
 		if(buzzPage.isLikeado()) {
 			int likesAnterior = buzzPage.pegarQtdLikes();
 			System.out.println("1 caso");
@@ -78,7 +78,7 @@ public class BuzzTest extends BaseTest {
 	}
 	
 	@Test
-	public void shareAlgumPost() throws InterruptedException {
+	public void id_39_shareAlgumPost() throws InterruptedException {
 		buzzPage.clicarCompartilharPost();
 		buzzPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-dialog-container-default--inner']//*[@class='oxd-form']"));
 		buzzPage.clicarShare();
@@ -86,7 +86,7 @@ public class BuzzTest extends BaseTest {
 	}
 	
 	@Test
-	public void comentarAlgumPost() {
+	public void id_40_comentarAlgumPost() {
 		buzzPage.clicarBotaoComentar();
 		buzzPage.escreverNosComents("Legal!");
 		buzzPage.enviarComent();
@@ -94,7 +94,7 @@ public class BuzzTest extends BaseTest {
 	}
 	
 	@Test
-	public void curtirAlgumComentarioDeAlgumPost() throws InterruptedException {
+	public void id_41_curtirAlgumComentarioDeAlgumPost() throws InterruptedException {
 		buzzPage.comentarEmAlgumPost("Incrivel!");
 		
 		buzzPage.clicarLikeComent("Incrivel!");
@@ -104,7 +104,7 @@ public class BuzzTest extends BaseTest {
 	}
 	
 	@Test
-	public void editarOProprioComentario() {
+	public void id_42_editarOProprioComentario() {
 		buzzPage.comentarEmAlgumPost("Incrivel!");
 		
 		buzzPage.clicarEditComent("Incrivel!");
@@ -115,7 +115,7 @@ public class BuzzTest extends BaseTest {
 	}
 	
 	@Test
-	public void apagarOProprioComentario() {
+	public void id_43_apagarOProprioComentario() {
 		buzzPage.comentarEmAlgumPost("Incrivel!");
 		
 		buzzPage.clicarApagarComent("Incrivel!");
@@ -123,8 +123,5 @@ public class BuzzTest extends BaseTest {
 		buzzPage.clicarPorTexto(" Yes, Delete ");
 		
 		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Deleted"));
-		
 	}
-	
-	
 }

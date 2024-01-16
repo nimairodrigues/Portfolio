@@ -26,7 +26,7 @@ public class PIMTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoEmpregado() throws InterruptedException {
+	public void id_23_criarNovoEmpregado() throws InterruptedException {
 		pimPage.clicarAddEmployee();
 		
 		pimPage.esperarPresencaPorElemento(By.xpath("//label[@class='oxd-label oxd-input-field-required']"));
@@ -41,7 +41,7 @@ public class PIMTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoEmpregadoSemDados() throws InterruptedException {
+	public void id_24_criarNovoEmpregadoSemDados() throws InterruptedException {
 		pimPage.clicarAddEmployee();
 		pimPage.esperarPresencaPorElemento(By.xpath("//label[@class='oxd-label oxd-input-field-required']"));
 		pimPage.esperarInvisibilidadeDeElemento(By.xpath("//div[@class='oxd-form-loader']"));
@@ -53,7 +53,7 @@ public class PIMTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoEmpregadoComId10Digitos() throws InterruptedException {
+	public void id_25_criarNovoEmpregadoComId10Digitos() throws InterruptedException {
 		pimPage.clicarAddEmployee();
 		
 		pimPage.esperarPresencaPorElemento(By.xpath("//label[@class='oxd-label oxd-input-field-required']"));
@@ -68,7 +68,7 @@ public class PIMTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoEmpregadoComId000() throws InterruptedException {
+	public void id_26_criarNovoEmpregadoComId000() throws InterruptedException {
 		//deve dar erro
 		pimPage.clicarAddEmployee();
 		
@@ -84,7 +84,7 @@ public class PIMTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoEmpregadoComIdNegativo() throws InterruptedException {
+	public void id_27_criarNovoEmpregadoComIdNegativo() throws InterruptedException {
 		//deve dar erro
 		pimPage.clicarAddEmployee();
 		
@@ -100,7 +100,7 @@ public class PIMTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoEmpregadoSemId() throws InterruptedException {
+	public void id_28_criarNovoEmpregadoSemId() throws InterruptedException {
 		//deve dar erro
 		pimPage.clicarAddEmployee();
 		
@@ -116,7 +116,7 @@ public class PIMTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoEmpregadoComNovoLogin() throws InterruptedException {
+	public void id_29_criarNovoEmpregadoComNovoLogin() throws InterruptedException {
 		//deve dar erro
 		pimPage.clicarAddEmployee();
 		
@@ -139,7 +139,7 @@ public class PIMTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoEmpregadoComNovoLoginSemUsuarioESenhaPreenchidos() throws InterruptedException {
+	public void id_30_criarNovoEmpregadoComNovoLoginSemUsuarioESenhaPreenchidos() throws InterruptedException {
 		//deve dar erro
 		pimPage.clicarAddEmployee();
 		
@@ -159,7 +159,7 @@ public class PIMTest extends BaseTest {
 	}
 	
 	@Test
-	public void clicarSuporteAddNovoEmployee() throws InterruptedException {
+	public void id_31_clicarSuporteAddNovoEmployee() throws InterruptedException {
 		pimPage.clicarAddEmployee();
 		pimPage.esperarPresencaPorElemento(By.xpath("//label[@class='oxd-label oxd-input-field-required']"));
 		pimPage.esperarInvisibilidadeDeElemento(By.xpath("//div[@class='oxd-form-loader']"));
@@ -173,11 +173,9 @@ public class PIMTest extends BaseTest {
 	}
 	
 	@Test
-	public void fazerPesquisaDeEmployeeName() throws InterruptedException {
-//		pimPage.escreverNoCampoPesquisaEmployeeName(pimPage.pegarUsuarioLogado());
+	public void id_32_fazerPesquisaDeEmployeeName() throws InterruptedException {
 		pimPage.search();
 		pimPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-table-row oxd-table-row--with-border oxd-table-row--clickable']"));
-//		pimPage.procurarNaTabelaOUsuario(pimPage.pegarUsuarioLogado());
 		Assert.assertThat(pimPage.existeAlgumElementoNaTabela(), Matchers.is(true));
 	}
 }

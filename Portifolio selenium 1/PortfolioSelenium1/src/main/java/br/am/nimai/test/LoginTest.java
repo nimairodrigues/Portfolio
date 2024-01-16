@@ -2,17 +2,31 @@ package br.am.nimai.test;
 
 import org.hamcrest.Matchers;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import br.am.nimai.core.BaseTest;
 import br.am.nimai.page.LoginPage;
+import br.am.nimai.services.EmailService;
 
 public class LoginTest extends BaseTest{
 	
+	@Mock
+	private EmailService email;
+	
+	
 	LoginPage loginPage = new LoginPage();
 	
+	@Before
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
+	
 	@Test
-	public void loginUsuarioESenhaCorretos() {
+	public void id_01_loginComUsuarioESenhaCorreta() {
 		//pre condicoes
 		
 		//execucao
@@ -26,7 +40,7 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void loginUsuarioESenhaIncorretos() throws InterruptedException {
+	public void id_02_loginComUsuarioIncorretoESenhaIncorreta() throws InterruptedException {
 		//pre condicoes
 		
 		//execucao
@@ -41,7 +55,7 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void loginUsuarioIncorretoESenhaCorreto() {
+	public void id_03_loginComUsuarioIncorretoESenhaCorreta() {
 		//pre condicoes
 		
 		//execucao
@@ -55,7 +69,7 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void loginUsuarioCorretoESenhaIncorreto() {
+	public void id_04_loginUsuarioCorretoESenhaIncorreto() {
 		//pre condicoes
 		
 		//execucao
@@ -69,7 +83,7 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void loginSemUsuarioESenha() {
+	public void id_05_loginSemUsuarioESemSenha() {
 		//pre condicoes
 		
 		//execucao
@@ -80,7 +94,7 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void loginSemUsuarioESenhaPreenchida() {
+	public void id_06_loginSemUsuarioESenhaQualquerPreenchida() {
 		//pre condicoes
 		
 		//execucao
@@ -93,7 +107,7 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void loginUsuarioPreenhidoESemSenha() {
+	public void id_07_loginUsuarioQualquerPreenhidoESemSenha() {
 		//pre condicoes
 
 		//execucao
@@ -106,23 +120,20 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void esqueceuASenhaComSucesso() {
+	public void id_08_esqueceuASenha() {
 		//pre condicoes
 		
 		//execucao
 		loginPage.clicarEsqueceuSenha();
 		loginPage.esperarPresencaPorTexto("Reset Password");
-		loginPage.setUserEsqueceuSenha("carlossilva");
-		loginPage.clicarResetPassword();
 		
 		//assertiva
-		loginPage.esperarPresencaPorTexto("Reset Password link sent successfully");
-		Assert.assertThat(loginPage.existeElementoPorTexto("Reset Password link sent successfully"),
+		Assert.assertThat(loginPage.existeElementoPorXPath("//*[@class='oxd-form']"),
 				Matchers.is(true));
 	}
 	
 	@Test
-	public void esqueceuASenhaCancelar() {
+	public void id_09_cancelarResetarSenha() {
 		//pre condicoes
 		
 		//execucao
@@ -137,7 +148,27 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void esqueceuSenhaSemUsuario() {
+	public void id_10_resetarSenhaDeUsuarioValido() {
+		//pre condicoes
+		Mockito.when(email.enviarEmail("carlossilva@site.com")).thenReturn(true);
+		
+		//execucao
+		loginPage.clicarEsqueceuSenha();
+		loginPage.esperarPresencaPorTexto("Reset Password");
+		loginPage.setUserEsqueceuSenha("carlossilva");
+		loginPage.clicarResetPassword();
+		
+		boolean enviou = email.enviarEmail("carlossilva@site.com");
+		
+		//assertiva
+		loginPage.esperarPresencaPorTexto("Reset Password link sent successfully");
+		Assert.assertThat(loginPage.existeElementoPorTexto("Reset Password link sent successfully"),
+				Matchers.is(true));
+		Assert.assertThat(enviou, Matchers.is(true));
+	}
+	
+	@Test
+	public void id_11_esqueceuSenhaSemUsuario() {
 		//pre condicoes
 
 		//execucao
@@ -146,12 +177,11 @@ public class LoginTest extends BaseTest{
 		loginPage.clicarResetPassword();
 		
 		//assertiva
-		Assert.assertThat(loginPage.existeElementoPorTexto("Required"),
-						Matchers.is(true));
+		Assert.assertThat(loginPage.existeElementoPorTexto("Required"), Matchers.is(true));
 	}
 	
 	@Test
-	public void esqueceuASenhaUsuarioInexistente() {
+	public void id_12_esqueceuASenhaComUsuarioInexistente() {
 		//pre condicoes
 		
 		//execucao

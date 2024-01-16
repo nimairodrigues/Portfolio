@@ -57,8 +57,8 @@ public class RecruitmentPage extends BasePage {
 		clicar(By.xpath("(//*[@class='oxd-select-wrapper'])/..//div[@role='listbox']//*[text()='"+jobTitle+"']"));
 	}
 	
-	public void clicarApagarCandidato() {
-		clicar(By.xpath("//i[@class='oxd-icon bi-trash']"));
+	public void clicarApagarCandidato(String candidatoNome) {
+		clicar(By.xpath("//*[text()='"+candidatoNome+"']/../..//*[@class='oxd-icon bi-trash']"));
 	}
 	
 	public void search() {
@@ -69,5 +69,20 @@ public class RecruitmentPage extends BasePage {
 		clicar(By.xpath("//i[@class='oxd-icon bi-eye-fill']"));
 	}
 	
+	public void criarCandidato() {
+		clicarAdd();
+		escreverFirstName("Josevane");
+		escreverLastName("Trigueiro");
+		escreverEmail("josevanetrigueiro@yahoo.com");
+		clicarSave();
+		
+		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
+		esperarInvisibilidadeDeElemento(By.xpath("//*[@class='oxd-toast-start']"));
+	}
 	
+	public void acessarCandidates() {
+		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-text oxd-text--p']"));
+		clicar(By.xpath("//*[@class='oxd-topbar-body']//li[1]"));
+		
+	}
 }

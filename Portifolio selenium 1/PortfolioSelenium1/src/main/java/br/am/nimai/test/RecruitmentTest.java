@@ -26,7 +26,7 @@ public class RecruitmentTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoCandidato() throws InterruptedException {
+	public void id_44_criarNovoCandidato() throws InterruptedException {
 		recruitPage.clicarAdd();
 		recruitPage.escreverFirstName("Josevane");
 		recruitPage.escreverLastName("Trigueiro");
@@ -36,7 +36,7 @@ public class RecruitmentTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoCandidatoSemDados() throws InterruptedException {
+	public void id_45_criarNovoCandidatoSemDados() throws InterruptedException {
 		recruitPage.clicarAdd();
 		recruitPage.clicarSave();
 		
@@ -46,7 +46,7 @@ public class RecruitmentTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoCandidatoComEmailIncorreto() throws InterruptedException {
+	public void id_46_criarNovoCandidatoComEmailIncorreto() throws InterruptedException {
 		recruitPage.clicarAdd();
 		recruitPage.escreverFirstName("Josevane");
 		recruitPage.escreverLastName("Trigueiro");
@@ -56,7 +56,7 @@ public class RecruitmentTest extends BaseTest {
 	}
 	
 	@Test
-	public void criarNovoCandidatoComVagaPreenchida() throws InterruptedException {
+	public void id_47_criarNovoCandidatoComVagaPreenchida() throws InterruptedException {
 		recruitPage.clicarAdd();
 		recruitPage.escreverFirstName("Josevane");
 		recruitPage.escreverLastName("Trigueiro");
@@ -68,7 +68,19 @@ public class RecruitmentTest extends BaseTest {
 	}
 	
 	@Test
-	public void fazerPesquisaPorGrupoJobTitle() throws InterruptedException {
+	public void id_48_apagarUmCandidato() throws InterruptedException {
+		recruitPage.criarCandidato();
+		recruitPage.acessarCandidates();
+		recruitPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-table-body']//*[@class='oxd-table-row oxd-table-row--with-border']/div[3]"));
+		recruitPage.clicarApagarCandidato("Josevane  Trigueiro");
+		recruitPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white oxd-dialog-sheet oxd-dialog-sheet--shadow oxd-dialog-sheet--gutters orangehrm-dialog-popup']"));
+		recruitPage.clicarPorTexto(" Yes, Delete ");
+		
+		Assert.assertThat(recruitPage.pegarPopupResultado(), Matchers.is("Successfully Deleted"));
+	}
+	
+	@Test
+	public void id_49_fazerPesquisaPorGrupoJobTitle() throws InterruptedException {
 		recruitPage.selecionarComboJobTitle("QA Lead");
 		recruitPage.search();
 		recruitPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-table-card']/div"));
@@ -76,7 +88,7 @@ public class RecruitmentTest extends BaseTest {
 	}
 	
 	@Test
-	public void clicarMaisInfoDeCandidato() throws InterruptedException {
+	public void id_50_clicarMaisInfoDeCandidato() throws InterruptedException {
 		recruitPage.clicarMaisInfo();
 		recruitPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-text oxd-text--p']"));
 		Assert.assertThat(recruitPage.existeElementoPorXPath("//*[@class='oxd-text oxd-text--p']"), Matchers.is(true));
