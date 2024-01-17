@@ -69,11 +69,11 @@ public class RecruitmentPage extends BasePage {
 		clicar(By.xpath("//i[@class='oxd-icon bi-eye-fill']"));
 	}
 	
-	public void criarCandidato() {
+	public void criarCandidato(String firstName, String lastName, String userEmail) {
 		clicarAdd();
-		escreverFirstName("Josevane");
-		escreverLastName("Trigueiro");
-		escreverEmail("josevanetrigueiro@yahoo.com");
+		escreverFirstName(firstName);
+		escreverLastName(lastName);
+		escreverEmail(userEmail);
 		clicarSave();
 		
 		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
@@ -83,6 +83,6 @@ public class RecruitmentPage extends BasePage {
 	public void acessarCandidates() {
 		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-text oxd-text--p']"));
 		clicar(By.xpath("//*[@class='oxd-topbar-body']//li[1]"));
-		
 	}
+	
 }

@@ -69,10 +69,10 @@ public class RecruitmentTest extends BaseTest {
 	
 	@Test
 	public void id_48_apagarUmCandidato() throws InterruptedException {
-		recruitPage.criarCandidato();
+		recruitPage.criarCandidato("Josevanese", "Trigueiro", "josevanesetrigueiro@yahoo.com");
 		recruitPage.acessarCandidates();
 		recruitPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-table-body']//*[@class='oxd-table-row oxd-table-row--with-border']/div[3]"));
-		recruitPage.clicarApagarCandidato("Josevane  Trigueiro");
+		recruitPage.clicarApagarCandidato("Josevanese  Trigueiro");
 		recruitPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white oxd-dialog-sheet oxd-dialog-sheet--shadow oxd-dialog-sheet--gutters orangehrm-dialog-popup']"));
 		recruitPage.clicarPorTexto(" Yes, Delete ");
 		
@@ -83,8 +83,13 @@ public class RecruitmentTest extends BaseTest {
 	public void id_49_fazerPesquisaPorGrupoJobTitle() throws InterruptedException {
 		recruitPage.selecionarComboJobTitle("QA Lead");
 		recruitPage.search();
-		recruitPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-table-card']/div"));
-		Assert.assertThat(recruitPage.existeElementoPorXPath("//*[@class='oxd-table-card']/div"), Matchers.is(true));
+		
+		try{
+			recruitPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-table-card']/div"));
+			Assert.assertThat(recruitPage.existeElementoPorXPath("//*[@class='oxd-table-card']/div"), Matchers.is(true));
+		} catch (Exception e){
+			Assert.fail("Nao encontrou elementos na tela");
+		}
 	}
 	
 	@Test
