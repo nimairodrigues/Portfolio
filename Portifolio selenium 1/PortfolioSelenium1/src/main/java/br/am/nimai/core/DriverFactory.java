@@ -29,7 +29,6 @@ public class DriverFactory {
 	
 	public static WebDriver initDriver() {
 		WebDriver driver = null;
-	//	if(driver == null) {
 		if(Propriedades.TIPO_EXECUCAO == TipoExecucao.LOCAL) {
 			switch (Propriedades.BROWSER) {
 			case FIREFOX: driver = new FirefoxDriver(); break;
@@ -44,7 +43,7 @@ public class DriverFactory {
 			case CHROME: cap = DesiredCapabilities.chrome(); break;
 			}
 			try {
-				driver = new RemoteWebDriver(new URL("http://192.168.0.2:4444/wd/hub"), cap);
+				driver = new RemoteWebDriver(new URL("http://192.168.0.4:4444/wd/hub"), cap);
 			} catch (MalformedURLException e) {
 				System.err.println("Flha na conexão com GRID");
 				e.printStackTrace();

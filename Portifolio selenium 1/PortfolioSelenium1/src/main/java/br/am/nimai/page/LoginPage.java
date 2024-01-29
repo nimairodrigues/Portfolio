@@ -1,11 +1,21 @@
 package br.am.nimai.page;
 
 
+import static br.am.nimai.core.DriverFactory.getDriver;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.am.nimai.core.BasePage;
 
 public class LoginPage extends BasePage {
+	
+	public void acessarTelaInicial() {
+		getDriver().get("https://opensource-demo.orangehrmlive.com/");
+		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h5[@class='oxd-text oxd-text--h5 orangehrm-login-title']")));
+	}
 	
 	public void setUsuario(String usuario) {
 		escrever(By.xpath("//input[@name='username']"), usuario);

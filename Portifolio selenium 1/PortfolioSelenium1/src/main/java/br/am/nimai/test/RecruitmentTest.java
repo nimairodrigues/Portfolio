@@ -98,5 +98,4 @@ public class RecruitmentTest extends BaseTest {
 		recruitPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-text oxd-text--p']"));
 		Assert.assertThat(recruitPage.existeElementoPorXPath("//*[@class='oxd-text oxd-text--p']"), Matchers.is(true));
 	}
-	
 }

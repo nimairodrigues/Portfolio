@@ -171,6 +171,11 @@ public class BuzzPage extends BasePage {
 		return textoGrande;
 	}
 
-	
+	public void fazerPost(String texto) {
+		escreverPost(texto);
+		clicarPost();
+		esperarPresencaPorElemento(By.xpath("//*[@class='oxd-toast-start']"));
+		esperarInvisibilidadeDeElemento(By.xpath("//*[@class='oxd-toast-start']"));
+	}
 
 }

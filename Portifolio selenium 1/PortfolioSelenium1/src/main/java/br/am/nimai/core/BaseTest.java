@@ -10,23 +10,23 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import br.am.nimai.page.LoginPage;
 
 public class BaseTest {
+	
+	LoginPage page = new LoginPage();
 	
 	@Rule
 	public TestName testName = new TestName();
 	
 	@Before
 	public void inicializar() {
-		getDriver().get("https://opensource-demo.orangehrmlive.com/");
-		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h5[@class='oxd-text oxd-text--h5 orangehrm-login-title']")));
+		page.acessarTelaInicial();
 	}
+	
 
 	@After
 	public void finaliza() throws IOException {

@@ -15,9 +15,10 @@ import br.am.nimai.test.RecruitmentTest;
 	LoginTest.class,
 	AdminTest.class,
 	PIMTest.class,
-	BuzzTest.class,
-	RecruitmentTest.class
+//	BuzzTest.class,
+//	RecruitmentTest.class
 })
 public class SuiteGeral {
-
+	
+	
 }

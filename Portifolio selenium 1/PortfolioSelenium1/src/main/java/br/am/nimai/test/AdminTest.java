@@ -31,7 +31,7 @@ public class AdminTest extends BaseTest {
 		adminPage.selecionarComboUserRole("Admin");
 		adminPage.setEmployeeName("a");
 		adminPage.selecionarComboStatus("Enabled");
-		adminPage.setUsername("username5");
+		adminPage.setUsername("username" + adminPage.randomNum(5000));
 		adminPage.setSenha("admin123");
 		adminPage.setSenhaConfirm("admin123");
 		
@@ -43,10 +43,10 @@ public class AdminTest extends BaseTest {
 	@Test
 	public void id_14_apagarUsuario() {
 		String randomNum = adminPage.randomNum(1000);
-		adminPage.criarNovoUser("username"+randomNum);
-		adminPage.esperarPresencaPorElemento(By.xpath("//*[text()='username"+randomNum+"']"));
+		adminPage.criarNovoUser("ausername"+randomNum);
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[text()='ausername"+randomNum+"']"));
 		
-		adminPage.apagarUserPorUsername("username"+randomNum);
+		adminPage.apagarUserPorUsername("ausername"+randomNum);
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-sheet oxd-sheet--rounded oxd-sheet--white oxd-dialog-sheet oxd-dialog-sheet--shadow oxd-dialog-sheet--gutters orangehrm-dialog-popup']"));
 		adminPage.clicarPorTexto(" Yes, Delete ");
 		
@@ -56,13 +56,13 @@ public class AdminTest extends BaseTest {
 	@Test
 	public void id_15_editarUsuario() throws InterruptedException {
 		String randomNum = adminPage.randomNum(1000);
-		adminPage.criarNovoUser("username"+randomNum);
-		adminPage.esperarPresencaPorElemento(By.xpath("//*[text()='username"+randomNum+"']"));
+		adminPage.criarNovoUser("ausername"+randomNum);
+		adminPage.esperarPresencaPorElemento(By.xpath("//*[text()='ausername"+randomNum+"']"));
 		
-		adminPage.editarUserPorUsername("username"+randomNum);
+		adminPage.editarUserPorUsername("ausername"+randomNum);
 		adminPage.esperarPresencaPorElemento(By.xpath("//*[@class='oxd-label']"));
 		
-		adminPage.editarUsername("username"+randomNum);
+		adminPage.editarUsername("ausername"+randomNum);
 		adminPage.clicarBotaoSalvarEdit();
 		Assert.assertThat(adminPage.pegarPopupResultado(), Matchers.is("Successfully Updated"));
 	}

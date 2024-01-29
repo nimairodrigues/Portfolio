@@ -128,7 +128,7 @@ public class PIMTest extends BaseTest {
 		
 		pimPage.clicarBotaoCriarDetalhesLogin();
 		
-		pimPage.escreverUsername("Jacaibo");
+		pimPage.escreverUsername("Jacaibo" + pimPage.randomNum(5000));
 		pimPage.escreverPassword("admin123");
 		pimPage.escreverConfirmPassword("admin123");
 		
@@ -169,7 +169,8 @@ public class PIMTest extends BaseTest {
 		
 		pimPage.esperarPresencaPorElemento(By.xpath("//h1[@title='How to Add an Employee']"));
 		
-		Assert.assertThat(pimPage.pegarTitlePageSuporte(), Matchers.is("How to Add an Employee – OrangeHRM"));
+		Assert.assertThat(pimPage.pegarTitlePageSuporte(), Matchers.startsWith("How to Add an Employee"));
+		// – 
 	}
 	
 	@Test

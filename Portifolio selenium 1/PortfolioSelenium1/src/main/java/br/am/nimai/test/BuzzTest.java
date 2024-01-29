@@ -29,8 +29,8 @@ public class BuzzTest extends BaseTest {
 	public void id_33_fazerUmPost() throws InterruptedException {
 		buzzPage.escreverPost("Meu numero da sorte e: " + buzzPage.aleatorizarNumeros(100));
 		buzzPage.clicarPost();
+		
 		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Saved"));
-		Thread.sleep(5000);
 	}
 	
 	@Test
@@ -44,10 +44,12 @@ public class BuzzTest extends BaseTest {
 	
 	@Test
 	public void id_35_alterarUmPost() throws InterruptedException {
-		//nomes de usuarios que contem nos post pode mudar tendo um middle name
+		buzzPage.fazerPost("esse post sera alterado");
+		
 		buzzPage.clicarAlterarPost();
 		buzzPage.escreverEditPost();
 		buzzPage.clicarPostEdit();
+		
 		Assert.assertThat(buzzPage.pegarPopupResultado(), Matchers.is("Successfully Updated"));
 	}
 	
@@ -55,6 +57,7 @@ public class BuzzTest extends BaseTest {
 	public void id_36_fazerUmPostAcimaDe65530() throws InterruptedException {
 		buzzPage.escreverPostLongo();
 		buzzPage.clicarPost();
+		
 		Assert.fail("Inviavel por demorar demais para escrever na tela");
 	}
 	
