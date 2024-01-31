@@ -1,0 +1,111 @@
+[33mcommit 31d6ffe464affae7b2335ea76d4f7d87b218f550[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Mon Jan 29 18:20:11 2024 -0300
+
+    atualizacao
+    
+    nome alterado
+
+[33mcommit b38d3c4c7eff60b7b0de1fa8305b86b76ed3cd17[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Mon Jan 29 17:47:33 2024 -0300
+
+    adicionado testes paralelos
+    
+    permitindo fazer testes com o selenium grid
+
+[33mcommit 5bf84b274523bfe2fdf8db445146b78f2ff17a7b[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Wed Jan 17 13:45:54 2024 -0300
+
+    atualizacao
+
+[33mcommit 5a63cb48ca85b0a135cdaf371415854349c69ac9[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Tue Jan 16 19:09:35 2024 -0300
+
+    atualizacao
+    
+    alteraçao nos nomes dos testes, adicionado numero id de acordo com a tabela de casos de testes, e refatoração de alguns testes
+
+[33mcommit b2e1f52947cc1dbc6618a865bd89195671b75b48[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Mon Jan 15 19:23:37 2024 -0300
+
+    atualizando
+    
+    alterado a codificação de alguns casos de testes e o readme do seleniumprojeto1
+
+[33mcommit 86af0308b790455dfeda3427e8a9a1a6edd74055[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Mon Jan 15 17:26:40 2024 -0300
+
+    adicionado readme na pasta seleniumprojeto1
+
+[33mcommit 5cec7273e0981379723d6ed9f35a793e6d649050[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Mon Jan 15 17:25:02 2024 -0300
+
+    alteraçao de pasta
+
+[33mcommit 555756f5dbeec0c518e16c33d0343763e45b4eca[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Fri Dec 29 12:40:23 2023 -0300
+
+    atualizacao
+    
+    adicionado suite, e readme na pasta portfolio selenium
+
+[33mcommit 14db209829e89646a68dc56268a8edd386e78ba3[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Thu Dec 28 14:02:16 2023 -0300
+
+    Finalizado codificacao dos códigos
+    
+    refatoração feita e terminada a codificação dos testes
+
+[33mcommit b88954c7745691b16bb68c13454b81817eeb0097[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Fri Dec 22 18:03:57 2023 -0300
+
+    atualizacao
+    
+    adicionado testes de pim, admin e buzz
+
+[33mcommit 301623e574019fb92118b51e6fb51d03af40becd[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Thu Dec 14 13:25:05 2023 -0300
+
+    Adicionado alguns testes
+    
+    Testes para os seguintes casos de testes: 16-23.
+
+[33mcommit 25e31b23093b9b986090c7838abfb0495fd0c03f[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Wed Dec 13 19:38:31 2023 -0300
+
+    Atualizando
+
+[33mcommit e4d768f867087885751f9046c70a7f1cd2621bf8[m[33m ([m[1;32mnaruto[m[33m)[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Thu Nov 30 14:02:38 2023 -0300
+
+    Adicionado código de testes de login
+    
+    Alterado alguns casos de testes
+
+[33mcommit 59e3c94f55fc00b2198b1200ea0095dbd644e9d9[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Wed Nov 22 17:26:26 2023 -0300
+
+    Criado README.md
+    
+    Readme.md para dar mais informações sobre meu portfólio
+
+[33mcommit e391186a9e5dcc35f2b06e4d88ae132c13ff20e2[m
+Author: Nimai Rodrigues <nimaizao@gmail.com>
+Date:   Wed Nov 22 17:25:07 2023 -0300
+
+    Adicionado casos de testes
+    
+    Criado e adicionado casos de testes ao portfólio
