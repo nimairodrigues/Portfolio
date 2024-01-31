@@ -1,4 +1,10 @@
-# Algumas informações sobre esse projeto com o selenium:
+# Algumas informações sobre este projeto com o Selenium:
+
+Vídeo da execução dos testes sem o paralelismo:
+
+Vídeo da execução dos testes com o paralelismo:
+
+Vídeo da execução dos testes com o Selenium Grid:
 
 Objeto de teste: https://opensource-demo.orangehrmlive.com/
 
