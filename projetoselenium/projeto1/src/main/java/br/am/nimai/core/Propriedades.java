@@ -6,8 +6,6 @@ public class Propriedades {
 	
 	public static Browsers BROWSER = Browsers.FIREFOX;
 	
-//	public static String NOME_CONTA_ALTERADA = "Conta Alterada" + System.nanoTime();
-	
 	public static TipoExecucao TIPO_EXECUCAO = TipoExecucao.LOCAL;
 	
 	public enum Browsers {

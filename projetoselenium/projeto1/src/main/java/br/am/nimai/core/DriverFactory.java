@@ -45,7 +45,7 @@ public class DriverFactory {
 			try {
 				driver = new RemoteWebDriver(new URL("http://192.168.0.4:4444/wd/hub"), cap);
 			} catch (MalformedURLException e) {
-				System.err.println("Flha na conexão com GRID");
+				System.err.println("Flha na conexao com GRID");
 				e.printStackTrace();
 			}
 		}
