@@ -64,7 +64,6 @@ public class PIMTest extends BaseTest {
 		pimPage.salvar();
 		
 		Assert.assertThat(pimPage.pegarSpanDoEmployeeId(), Matchers.is("Should not exceed 10 characters"));
-		Thread.sleep(5000);
 	}
 	
 	@Test
@@ -79,7 +78,6 @@ public class PIMTest extends BaseTest {
 		pimPage.escreverEmployeeId("000");
 		pimPage.salvar();
 		
-		Assert.fail("deve dar erro");
 		Assert.assertThat(pimPage.pegarSpanDoEmployeeId(), Matchers.is("ID should not be less than 1"));
 	}
 	

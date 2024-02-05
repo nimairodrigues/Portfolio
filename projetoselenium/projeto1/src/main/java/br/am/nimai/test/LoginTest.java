@@ -111,7 +111,7 @@ public class LoginTest extends BaseTest{
 		//pre condicoes
 
 		//execucao
-		loginPage.setUsuario("Nimai");
+		loginPage.setUsuario("Admin");
 		loginPage.clicarLogar();
 		
 		//assertiva
