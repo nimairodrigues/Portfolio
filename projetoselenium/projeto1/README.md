@@ -2,7 +2,7 @@
 
 Vídeo da execução dos testes sem o paralelismo: https://youtu.be/Kk49Vhv9Zz4
 
-Vídeo da execução dos testes com o paralelismo: https://youtu.be/uVa9wto4i4I
+Vídeo da execução dos testes com o paralelismo: [https://youtu.be/uVa9wto4i4I](https://youtu.be/rMawrUoaKUo)
 
 Vídeo da execução dos testes com o Selenium Grid: https://youtu.be/VRYDGbKS6zA
 
