@@ -5,19 +5,19 @@ Portfólio contendo projetos pessoais com fins de mostrar meus conhecimentos par
 Neste portfólio conterá:
 
 1. 2 Projetos de Testes Web com Selenium: 
-   1. [ CONCLUÍDO ] 1 Apenas utilizando Selenium com Java, com testes paralelos e testes usando o Selenium Grid.
-   2. [ NÃO INICIADO ] 1 Além do Selenium com Java, utilizando técnica BDD (Behavior Driven-development com a ferramenta Cucumber e tambem utilizando linguagem Gherkin.
+   1. [ _CONCLUÍDO_ ] 1 Apenas utilizando Selenium com Java, com testes paralelos e testes usando o Selenium Grid.
+   2. [ _NÃO INICIADO_ ] 1 Além do Selenium com Java, utilizando técnica BDD (Behavior Driven-development com a ferramenta Cucumber e tambem utilizando linguagem Gherkin.
 
 2. 2 Projetos de Testes Mobile com Appium:
-    1. [ NÃO INICIADO ] 1 Apenas utilizando Appium com Java, e Testes em Núvem.
-    2. [ NÃO INICIADO ] 1 Além do Appium com Java, utilizando técnica BDD (Behavior Driven-development com a ferramenta Cucumber e tambem utilizando linguagem Gherkin.
+    1. [ _NÃO INICIADO_ ] 1 Apenas utilizando Appium com Java, e Testes em Núvem.
+    2. [ _NÃO INICIADO_ ] 1 Além do Appium com Java, utilizando técnica BDD (Behavior Driven-development com a ferramenta Cucumber e tambem utilizando linguagem Gherkin.
 
 3. 2 Projetos de Testes de API:
-    1. [ NÃO INICIADO ] 1 Utilizando Restassured.
-    2. [ NÃO INICIADO ] 1 Utilizando Postman.
+    1. [ _NÃO INICIADO_ ] 1 Utilizando Restassured.
+    2. [ _NÃO INICIADO_ ] 1 Utilizando Postman.
 
 4. 1 Projeto de Testes de Desempenho com JMeter.
-    1. [ NÃO INICIADO ] Fazendo Teste de Carga e Teste de Stress.
+    1. [ _NÃO INICIADO_ ] Fazendo Teste de Carga e Teste de Stress.
 
 
 
