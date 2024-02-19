@@ -5,7 +5,7 @@ Portfólio contendo projetos pessoais com fins de mostrar meus conhecimentos par
 Neste portfólio conterá:
 
 1. 2 Projetos de Testes Web com Selenium: 
-   1. [ _CONCLUÍDO_ ] 1 Apenas utilizando Selenium com Java, com testes paralelos e testes usando o Selenium Grid.
+   1. [ _CONCLUÍDO_ ] [ [Link do projeto](https://github.com/nimairodrigues/Portfolio/tree/main/projetoselenium/projeto1) ] 1 Apenas utilizando Selenium com Java, com testes paralelos e testes usando o Selenium Grid.
    2. [ _NÃO INICIADO_ ] 1 Além do Selenium com Java, utilizando técnica BDD (Behavior Driven-development com a ferramenta Cucumber e tambem utilizando linguagem Gherkin.
 
 2. 2 Projetos de Testes Mobile com Appium:
