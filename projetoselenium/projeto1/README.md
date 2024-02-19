@@ -1,10 +1,10 @@
 # Projeto 1 de testes usando Selenium:
 
-Vídeo da execução dos testes sem o paralelismo: https://youtu.be/Kk49Vhv9Zz4
+Vídeo da execução dos testes sem o paralelismo com legenda explicativa: https://youtu.be/6kHf2t2x5ak
 
-Vídeo da execução dos testes com o paralelismo: [https://youtu.be/uVa9wto4i4I](https://youtu.be/rMawrUoaKUo)
+Vídeo da execução dos testes com o paralelismo com legenda explicativa: https://youtu.be/B-2eO2PAQ2A
 
-Vídeo da execução dos testes com o Selenium Grid: https://youtu.be/VRYDGbKS6zA
+Vídeo da execução dos testes com o Selenium Grid com legenda explicativa: https://youtu.be/wQ9EJVVxPhE
 
 Objeto de teste: https://opensource-demo.orangehrmlive.com/
 
