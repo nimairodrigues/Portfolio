@@ -27,9 +27,11 @@ Não foi preciso apagar a massa de dados, mas era recomendável.
 
 ### Foi utilizado algumas tecnicas como: <h3>
 
- 1. Page Object: Técnica utilizada para organizar os códigos de forma que facilite a refatoração, manutenção, leitura e organização do mesmo, criando uma Classe Page para os códigos de interação com o Sistema, e uma Classe de Teste para os códigos de validação.
- 2. DriverFactory: Técnica utilizada para organizar o código de criação de Driver, criando uma Classe específica para a criação do mesmo, facilitando a sua manutenção.
- 3. Independencia entre os testes: Permite a execução dos testes a qualquer momento e em qualquer ordem.
+ **Page Object**: Técnica utilizada para organizar os códigos de forma que facilite a refatoração, manutenção, leitura e organização do mesmo, criando uma Classe Page para os códigos de interação com o Sistema, e uma Classe de Teste para os códigos de validação.
+ 
+ **Driver Factory**: Técnica utilizada para organizar o código de criação de Driver, criando uma Classe específica para a criação do mesmo, facilitando a sua manutenção.
+ 
+ **Independencia entre os testes**: Permite a execução dos testes a qualquer momento e em qualquer ordem.
 
 ### Contém: <h3>
 
