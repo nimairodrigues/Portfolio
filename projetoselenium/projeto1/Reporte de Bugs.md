@@ -1,9 +1,12 @@
 # BUG REPORT
 
-# Mensagem embaixo do campo ID não aparece ao digitar ID 000
+### 1- Mensagem embaixo do campo ID não aparece ao digitar ID 000 <h3>
+# 
 Código CT: 26
 
 Título: Criar novo empregado com ID "000"
+
+Cenário: PIM
 
 Resultado esperado: Deve aparecer em baixo do campo de Employee ID “ID should not be less than 1” em vermelho!
 
@@ -33,10 +36,12 @@ Evidências:
 
 https://github.com/nimairodrigues/Portfolio/assets/112123854/3bc9739d-42fb-4315-ae4f-e171755fd14e
 
-# Mensagem embaixo do campo ID não aparece ao digitar um ID negativo
+### 2- Mensagem embaixo do campo ID não aparece ao digitar um ID negativo <h3>
 Código CT: 27
 
 Título: Criar novo empregado com ID negativo
+
+Cenário: PIM
 
 Resultado esperado: Deve aparecer em baixo do campo de Employee ID “ID should not be less than 1” em vermelho!
 
@@ -65,10 +70,12 @@ Evidências:
 
 https://github.com/nimairodrigues/Portfolio/assets/112123854/ed8155fb-4b34-4661-849a-3e21baed56ba
 
-# Mensagem embaixo do campo ID não aparece ao clicar em salvar sem digitar ID
+### 3- Mensagem embaixo do campo ID não aparece ao clicar em salvar sem digitar ID <h3>
 Código CT: 28
 
 Título: Criar novo empregado sem ID
+
+Cenário: PIM
 
 Resultado esperado: Deve aparecer em baixo do campo de Employee ID “Required” em vermelho.
 
