@@ -1,0 +1,13 @@
+a) login
+1- tentar logar com usuario inexistente e senha qualquer
+2- tentar logar com usuario existente mas senha incorreta
+3- tentar logar apenas com usuário
+4- tentar logar sem usuario e sem senha
+5- fazer login com sucesso
+
+b) search
+1- pesquisar "Mark" e abrir o perfil
+2- dar like em algum post do explorar
+3- comentar em algum post do explorar
+4- atualizar pagina do explorar
+5- salvar algum post do explorar
