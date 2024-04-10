@@ -47,7 +47,6 @@ public class BasePage {
 	}
 	
 	public boolean existeElementoPorTexto(String texto) {
-//		List<MobileElement> findElements = getDriver().findElements(By.xpath("//*[@text='"+texto+"']"));
 		List<MobileElement> findElements = getDriver().findElements(By.xpath("//*[@text=\""+texto+"\"]"));
 		return findElements.size() > 0;
 	}
@@ -141,55 +140,6 @@ public class BasePage {
 		.moveTo(PointOption.point(new Point(end_x, y)))
 		.release()
 		.perform();
-	}
-	
-	public void swipeElement5(MobileElement element) throws InterruptedException {
-		
-		MobileElement inicio = element;
-		
-		
-		System.out.println("fazendo o 1");
-		TouchAction<?> action = new TouchAction<>(getDriver());
-		action.longPress(PointOption.point(inicio.getCenter()));
-		action.perform();
-		System.out.println("fiz o 1");
-		
-		Point fim = DriverFactory.getDriver().findElement(By.xpath("//*[@content-desc='Options']")).getCenter();
-		
-		System.out.println("fazendo o 2");
-		action.moveTo(PointOption.point(fim))
-			.release()
-			.perform();
-		System.out.println("fiz o 2");
-		
-		TouchAction<?> action2 = new TouchAction<>(getDriver());
-		action2.longPress(LongPressOptions.longPressOptions().withPosition(PointOption.point(inicio.getCenter())).withDuration(Duration.ofMillis(2000)));
-		action2.waitAction(WaitOptions.waitOptions(Duration.ofMillis(3000)));
-		action2.moveTo(PointOption.point(fim));
-		action2.release();
-		action2.perform();
-	}
-	
-public void swipeElement6(MobileElement element) throws InterruptedException {
-		
-		Point inicio = element.getCenter();
-		
-		
-		System.out.println("fazendo o 1");
-		TouchAction<?> action = new TouchAction<>(getDriver());
-		action.longPress(PointOption.point(element.getCenter()));
-//		action.waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)));
-		action.perform();
-		System.out.println("fiz o 1");
-		
-		Point fim = DriverFactory.getDriver().findElement(By.xpath("//*[@content-desc='Options']")).getCenter();
-		
-		System.out.println("fazendo o 2");
-		action.waitAction(WaitOptions.waitOptions(Duration.ofMillis(5000)));
-		action.moveTo(PointOption.point(fim));
-		action.perform();
-		System.out.println("fiz o 2");
-		Thread.sleep(2000);
 	}
 	
 	public void cliqueLongo(By by) {

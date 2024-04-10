@@ -3,11 +3,16 @@ package br.am.nimai.page;
 import static br.am.nimai.core.DriverFactory.getDriver;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.am.nimai.core.BasePage;
 import br.am.nimai.core.DriverFactory;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class ExplorerPage extends BasePage {
 
@@ -36,8 +41,27 @@ public class ExplorerPage extends BasePage {
 		clicar(By.xpath("//*[ends-with(lower-case(@content-desc), 'at row 2, column 2')]"));
 	}
 	
-	public void cliqueESeguraNaPub() throws InterruptedException {
-		swipeElement5(DriverFactory.getDriver().findElement(By.xpath("//*[ends-with(lower-case(@content-desc), 'at row 2, column 2')]")));
+	public void cliqueESeguraNaPubParaOptions() throws InterruptedException {
+		//pegando a publicação e armazenando em uma variável.
+		MobileElement inicio = DriverFactory.getDriver().findElement(By.xpath("//*[ends-with(lower-case(@content-desc), 'at row 2, column 2')]"));
+		
+		//clicando e segurando na publicação para pegar a informação das coordenadas do botão, pois nao é possível fazer ao mesmo tempo na mesma hora.
+		TouchAction<?> action = new TouchAction<>(getDriver());
+		action.longPress(LongPressOptions.longPressOptions().withPosition(PointOption.point(inicio.getCenter())));
+		action.perform();
+		//pegando a informação do botão e armazenando em uma variável.
+		Point fim = DriverFactory.getDriver().findElement(By.xpath("//*[@content-desc='Options']")).getCenter();
+		//fechando a janela aberta soltando o botão.
+		action.moveTo(PointOption.point(fim))
+			.release()
+			.perform();
+		
+		//clicando na publicação e arrastando para o botão.
+		TouchAction<?> action2 = new TouchAction<>(getDriver());
+		action2.longPress(LongPressOptions.longPressOptions().withPosition(PointOption.point(inicio.getCenter())));
+		action2.moveTo(PointOption.point(fim));
+		action2.release();
+		action2.perform();
 	}
 	
 	public void clicarLike() {
@@ -105,5 +129,9 @@ public class ExplorerPage extends BasePage {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 		String nomePost = obterNomePost();
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@content-desc='"+ nomePost +"']")));
+	}
+
+	public void clicarNotInterested() {
+		clicarPorTexto("Not Interested");
 	}
 }

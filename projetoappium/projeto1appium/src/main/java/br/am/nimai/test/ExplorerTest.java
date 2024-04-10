@@ -75,7 +75,9 @@ public class ExplorerTest extends BaseTest {
 	
 	@Test
 	public void ct_12_clicarBotaoNaoRecomendarPost() throws InterruptedException {
-		explorerPage.cliqueESeguraNaPub();
-		Thread.sleep(5000);
+		explorerPage.cliqueESeguraNaPubParaOptions();
+		explorerPage.clicarNotInterested();
+		
+		Assert.assertTrue(explorerPage.existeElementoPorTexto("Post hidden"));
 	}
 }

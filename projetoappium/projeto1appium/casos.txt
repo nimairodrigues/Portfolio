@@ -11,3 +11,10 @@ b) search
 3- comentar em algum post do explorar
 4- atualizar pagina do explorar
 5- salvar algum post do explorar
+
+c) Profile
+1- entrar no perfil e dar like em alguma foto
+2- entrar no perfil e comentar em alguma foto
+3- entrar no perfil e clicar em Message e enviar uma mensagem
+4- entrar no perfil e acessar enviar mensagem arrastando para a esquerda [vai falhar]
+5- entrar no perfil e colocar para esconder stories
