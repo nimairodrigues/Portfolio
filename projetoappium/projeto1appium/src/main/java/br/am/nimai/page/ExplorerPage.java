@@ -21,7 +21,6 @@ public class ExplorerPage extends BasePage {
 	}
 	
 	public void escreverNoSearch(String text) {
-//		clicar(By.xpath("//android.widget.TextView[@text='Search']"));
 		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@resource-id='com.instagram.android:id/action_bar_search_hints_text_layout']")));
 		clicar(By.xpath("//*[@resource-id='com.instagram.android:id/action_bar_search_hints_text_layout']"));
@@ -29,8 +28,7 @@ public class ExplorerPage extends BasePage {
 	}
 	
 	public void clicarNoPerfilSearch(String profileName) {
-//		clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_search_user_container']//*[@text='"+profileName+"']"));
-		clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_search_user_container']//*[@text='zuck']/../../.."));
+		clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_search_user_container']//*[@text='"+profileName+"']/../../.."));
 	}
 	
 	public String obterProfileUsername() {
@@ -50,7 +48,7 @@ public class ExplorerPage extends BasePage {
 		action.longPress(LongPressOptions.longPressOptions().withPosition(PointOption.point(inicio.getCenter())));
 		action.perform();
 		//pegando a informação do botão e armazenando em uma variável.
-		Point fim = DriverFactory.getDriver().findElement(By.xpath("//*[@content-desc='Options']")).getCenter();
+		Point fim = DriverFactory.getDriver().findElement(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_options']")).getCenter();
 		//fechando a janela aberta soltando o botão.
 		action.moveTo(PointOption.point(fim))
 			.release()
@@ -65,7 +63,12 @@ public class ExplorerPage extends BasePage {
 	}
 	
 	public void clicarLike() {
-		clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_like']"));
+		if(existeElementoNaTela(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_like']"))) {
+			clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_like']"));
+		} else {
+			scroll(0.65, 0.35);
+			clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_like']"));
+		}
 	}
 	
 	public Boolean obterIsLiked() {
