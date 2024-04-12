@@ -18,8 +18,8 @@ public class ProfileTest extends BaseTest {
 		loginPage.logar();
 		loginPage.clicarNotNow();
 		profilePage.acessarExplorer();
-		profilePage.escreverNoSearch("@zuck");
-		profilePage.clicarNoPerfilSearch("zuck");
+		profilePage.escreverNoSearch("@nasa");
+		profilePage.clicarNoPerfilSearch("nasa");
 	}
 	
 	@Test
@@ -45,6 +45,23 @@ public class ProfileTest extends BaseTest {
 		Assert.assertTrue(profilePage.obterIsCommented());
 		
 		profilePage.apagarComentario();
-		
 	}
+	
+	@Test
+	public void ct_15_acessarEnviarMensagemSwipeEsquerda() {
+		profilePage.swipeLeft();
+		
+		Assert.assertTrue(profilePage.obterMsgDaTelaMensagem());
+	}
+	@Test
+	public void ct_16_esconderStories() {
+		profilePage.clicarBotaoOpcao();
+		profilePage.clicarHideStory();
+		profilePage.clicarConfirmarHideStory();
+		
+		Assert.assertTrue(profilePage.existeElementoPorTexto("nasa will no longer see your story."));
+		
+		profilePage.unhideStory();
+	}
+	
 }

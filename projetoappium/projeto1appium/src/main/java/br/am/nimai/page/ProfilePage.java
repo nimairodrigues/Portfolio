@@ -70,4 +70,34 @@ public class ProfilePage extends BasePage {
 			scroll(0.6, 0.4);
 		}
 	}
+	
+	public void swipeLeft() {
+		swipe(0.9, 0.1);
+	}
+	
+	public boolean obterMsgDaTelaMensagem() {
+		return DriverFactory.getDriver().findElement(By.xpath("//*[@resource-id='com.instagram.android:id/privacy_disclosure_text']")).getText().contains("You started a chat with");
+	}
+
+	public void clicarBotaoOpcao() {
+		clicar(By.xpath("//*[@resource-id='com.instagram.android:id/action_bar_overflow_icon']"));
+	}
+
+	public void clicarHideStory() {
+		clicar(By.xpath("//android.widget.Button[@text='Hide your story']"));
+	}
+	
+	public void clicarUnhideStory() {
+		clicar(By.xpath("//android.widget.Button[@text='Unhide your story']"));
+	}
+
+	public void clicarConfirmarHideStory() {
+		clicar(By.xpath("//android.widget.Button[@text='Hide']"));
+	}
+	
+	public void unhideStory() {
+		clicarBotaoOpcao();
+		clicarUnhideStory();
+	}
+	
 }
