@@ -30,8 +30,8 @@ public class LoginTest extends BaseTest{
 		loginPage.escreverSenha("senhaqualquer935");
 		loginPage.clicarLogin();
 		  
-		Assert.assertTrue(loginPage.existeElementoPorTexto("Incorrect Password"));
-		Assert.assertTrue(loginPage.existeElementoPorTexto("The password you entered is incorrect. Please try again."));
+		Assert.assertTrue(loginPage.existeElementoPorTexto("The password you entered is incorrect. "
+				+ "To log in, you'll need to enter a code."));
 		
 	}
 	
@@ -46,7 +46,7 @@ public class LoginTest extends BaseTest{
 	}
 	
 	@Test
-	public void ct_04_login() throws InterruptedException {
+	public void ct_04_loginSemPreencherUsuarioESenha() throws InterruptedException {
 		loginPage.clicarLogin();
 		
 		Assert.assertTrue(loginPage.existeElementoPorTexto("Enter your username, email or mobile number to log in"));

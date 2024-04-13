@@ -20,5 +20,4 @@ import br.am.nimai.test.RecruitmentTest;
 })
 public class SuiteGeral {
 	
-	
 }

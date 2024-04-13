@@ -54,7 +54,7 @@ public class ProfileTest extends BaseTest {
 		Assert.assertTrue(profilePage.obterMsgDaTelaMensagem());
 	}
 	@Test
-	public void ct_16_esconderStories() {
+	public void ct_16_esconderStoriesDeAlgumPerfil() {
 		profilePage.clicarBotaoOpcao();
 		profilePage.clicarHideStory();
 		profilePage.clicarConfirmarHideStory();
