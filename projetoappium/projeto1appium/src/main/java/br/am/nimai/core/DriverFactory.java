@@ -46,8 +46,8 @@ public class DriverFactory {
 		caps.setCapability("appium:platformVersion", "12.0");
 		caps.setCapability("appium:automationName", "UiAutomator2");
 		MutableCapabilities sauceOptions = new MutableCapabilities();
-		sauceOptions.setCapability("username", "oauth-nimaizao-e1aa8");
-		sauceOptions.setCapability("accessKey", "d50a49ec-527c-49da-8e89-e5695fac0eea");
+		sauceOptions.setCapability("username", Properties.username);
+		sauceOptions.setCapability("accessKey", Properties.accessKey);
 		sauceOptions.setCapability("build", "appium-build-JE90W");
 		sauceOptions.setCapability("name", "automation testing");
 		sauceOptions.setCapability("deviceOrientation", "PORTRAIT");
