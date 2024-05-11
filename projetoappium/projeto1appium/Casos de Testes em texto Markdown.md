@@ -51,10 +51,9 @@ Passo a passo para execução:
 
     1- Acessar aplicação.
     2- Digitar usuário.
-    3- Digitar senha.
-    4- Clicar botão "Log in".
+    3- Clicar botão “Log in”.
     
-Resultado esperado: Deve mostrar um Alert com título "Enter your password to log in"
+Resultado esperado: Ao clicar em log in deve selecionar o campo de senha e ficar destacado.
 
 Status: OK.
 

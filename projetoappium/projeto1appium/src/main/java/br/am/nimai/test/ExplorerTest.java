@@ -1,16 +1,15 @@
 package br.am.nimai.test;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 
 import br.am.nimai.core.BaseTest;
 import br.am.nimai.page.ExplorerPage;
 import br.am.nimai.page.LoginPage;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ExplorerTest extends BaseTest {
 	
 	ExplorerPage explorerPage = new ExplorerPage();
@@ -57,11 +56,11 @@ public class ExplorerTest extends BaseTest {
 	
 	@Test
 	public void ct_10_atualizarPageExplorar() throws InterruptedException {
-		String nomePost = explorerPage.obterNomePost();
+		List<String> obterNomesPostsAntesDeAtt = explorerPage.obterNomesPosts();
 		explorerPage.scroll(0.3, 0.8);
-		explorerPage.esperarAtualizarPaginaExplorer();
+		explorerPage.esperarAtualizarPaginaExplorer(obterNomesPostsAntesDeAtt.get(1));
 		
-		Assert.assertNotEquals(nomePost, explorerPage.obterNomePost());
+		Assert.assertNotEquals(obterNomesPostsAntesDeAtt, explorerPage.obterNomesPosts());
 		
 	}
 	

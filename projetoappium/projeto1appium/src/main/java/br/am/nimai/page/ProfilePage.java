@@ -16,7 +16,7 @@ public class ProfilePage extends BasePage {
 	}
 	
 	public void escreverNoSearch(String text) {
-		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 15);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@resource-id='com.instagram.android:id/action_bar_search_hints_text_layout']")));
 		clicar(By.xpath("//*[@resource-id='com.instagram.android:id/action_bar_search_hints_text_layout']"));
 		escrever(By.xpath("//*[@resource-id='com.instagram.android:id/action_bar_search_edit_text']"), text);

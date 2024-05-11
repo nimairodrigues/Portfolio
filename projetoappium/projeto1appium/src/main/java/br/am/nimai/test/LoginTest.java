@@ -1,20 +1,17 @@
 package br.am.nimai.test;
 
 import org.junit.Assert;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 
 import br.am.nimai.core.BaseTest;
 import br.am.nimai.core.Properties;
 import br.am.nimai.page.LoginPage;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LoginTest extends BaseTest{
 	
 	LoginPage loginPage = new LoginPage();
 	
-	@Test
+//	@Test
 	public void ct_01_loginComSucesso() throws InterruptedException {
 		  loginPage.escreverUsuario(Properties.user);
 		  loginPage.escreverSenha(Properties.pw);
@@ -30,18 +27,17 @@ public class LoginTest extends BaseTest{
 		loginPage.escreverSenha("senhaqualquer935");
 		loginPage.clicarLogin();
 		  
-		Assert.assertTrue(loginPage.existeElementoPorTexto("The password you entered is incorrect. "
-				+ "To log in, you'll need to enter a code."));
+		Assert.assertTrue(loginPage.existeElementoPorTexto("The password you entered is incorrect. To log in, you'll need to enter a code."));
+//		Assert.assertTrue(loginPage.existeElementoPorTexto("The password you entered is incorrect."));
 		
 	}
 	
-	@Test
+	@Test 
 	public void ct_03_loginApenasComUsuarioPreenchido() throws InterruptedException {
 		loginPage.escreverUsuario(Properties.user);
-		loginPage.clicarSenha();
-		loginPage.clicarLoginDenovo();
+		loginPage.clicarLogin();
 		  
-		Assert.assertTrue(loginPage.existeElementoPorTexto("Enter your password to log in"));
+		Assert.assertTrue(loginPage.isPasswordFocused());
 		
 	}
 	

@@ -2,6 +2,9 @@ package br.am.nimai.page;
 
 import static br.am.nimai.core.DriverFactory.getDriver;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -66,7 +69,7 @@ public class ExplorerPage extends BasePage {
 		if(existeElementoNaTela(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_like']"))) {
 			clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_like']"));
 		} else {
-			scroll(0.65, 0.35);
+			scroll(0.55, 0.45);
 			clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_like']"));
 		}
 	}
@@ -79,7 +82,7 @@ public class ExplorerPage extends BasePage {
 		if(existeElementoNaTela(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_comment']"))) {
 			clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_comment']"));
 		} else {
-			scroll(0.6, 0.4);
+			scroll(0.55, 0.45);
 			clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_comment']"));
 		}
 	}
@@ -88,7 +91,7 @@ public class ExplorerPage extends BasePage {
 		if(existeElementoNaTela(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_save']"))) {
 			clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_save']"));
 		} else {
-			scroll(0.65, 0.35);
+			scroll(0.55, 0.45);
 			clicar(By.xpath("//*[@resource-id='com.instagram.android:id/row_feed_button_save']"));
 		}
 	}
@@ -128,13 +131,23 @@ public class ExplorerPage extends BasePage {
 		return getDriver().findElement(By.xpath("//*[ends-with(lower-case(@content-desc), 'at row 2, column 2')]")).getAttribute("content-desc");
 	}
 	
-	public void esperarAtualizarPaginaExplorer() {
+	public List<String> obterNomesPosts() {
+		List<MobileElement> elements = getDriver().findElements(By.xpath("//android.widget.Button[contains(lower-case(@content-desc), 'at row')]"));
+		List<String> listaNomesPosts = new ArrayList<String>();
+		for(MobileElement elementosEncontardos: elements) {
+			listaNomesPosts.add(elementosEncontardos.getAttribute("content-desc"));
+		}
+		return listaNomesPosts;
+	}
+	
+	public void esperarAtualizarPaginaExplorer(String nomePost) {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-		String nomePost = obterNomePost();
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@content-desc='"+ nomePost +"']")));
 	}
 
 	public void clicarNotInterested() {
-		clicarPorTexto("Not Interested");
+		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Not interested']")));
+		clicarPorTexto("Not interested");
 	}
 }

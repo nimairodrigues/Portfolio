@@ -1,6 +1,10 @@
 package br.am.nimai.page;
 
+import static br.am.nimai.core.DriverFactory.getDriver;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import br.am.nimai.core.BasePage;
 import br.am.nimai.core.DriverFactory;
@@ -31,24 +35,19 @@ public class LoginPage extends BasePage{
 	
 	public void clicarLoginDenovo() throws InterruptedException {
 		MobileElement element = DriverFactory.getDriver().findElement(By.xpath("//*[@content-desc='Log in']"));
-		System.out.println(element.getText());
-		System.out.println(element.getLocation().y);
-		System.out.println(element.getLocation().x);
 		int yele = (int) (element.getLocation().y + (element.getLocation().y * 0.010));
 		int xele = (int) (element.getLocation().x + (element.getLocation().x * 10));
-		System.out.println("y "+yele);
-		System.out.println("x "+xele);
 		tap(xele, yele);
 		
 	}
 	
 	public void clicarCheckboxCredenciais() {
-		clicar(By.xpath("//*[@content-id='Checkbox credentials']"));
+		clicar(By.xpath("//*[@content-desc='Checkbox credentials']"));
 		
 	}
 	
 	public boolean isCheckboxMarcado() {
-		return isCheckMarcado(By.xpath("//*[@content-id='Checkbox credentials']"));
+		return isCheckMarcado(By.xpath("//*[@content-desc='Checkbox credentials']"));
 		
 	}
 	
@@ -61,6 +60,16 @@ public class LoginPage extends BasePage{
 	
 	public void clicarNotNow() {
 		clicar(By.xpath("//*[@content-desc='Not now']"));
+	}
+	
+	public boolean isPasswordFocused() {
+		return getDriver().findElement(By.xpath("//*[@text='Password']/../../android.widget.EditText")).getAttribute("focused").contains("true");
+	}
+
+	public void esperarTela() {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Username, email or mobile number']/../../android.widget.EditText")));
+		
 	}
 	
 }

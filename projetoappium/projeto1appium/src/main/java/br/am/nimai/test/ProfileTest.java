@@ -50,7 +50,6 @@ public class ProfileTest extends BaseTest {
 	@Test
 	public void ct_15_acessarEnviarMensagemSwipeEsquerda() {
 		profilePage.swipeLeft();
-		
 		Assert.assertTrue(profilePage.obterMsgDaTelaMensagem());
 	}
 	@Test
