@@ -9,7 +9,7 @@ Neste portfólio conterá:
    2. [ _NÃO INICIADO_ ] 1 Além do Selenium com Java, utilizando técnica BDD (Behavior Driven-development com a ferramenta Cucumber e tambem utilizando linguagem Gherkin.
 
 2. 2 Projetos de Testes Mobile com Appium:
-    1. [ _EM ANDAMENTO_ ] [ [Link do projeto](https://github.com/nimairodrigues/Portfolio/tree/main/projetoappium/projeto1appium) ]1 Apenas utilizando Appium com Java, e Testes em Núvem.
+    1. [ _CONCLUÍDO_ ] [ [Link do projeto](https://github.com/nimairodrigues/Portfolio/tree/main/projetoappium/projeto1appium) ]1 Apenas utilizando Appium com Java, e Testes em Núvem.
     2. [ _NÃO INICIADO_ ] 1 Além do Appium com Java, utilizando técnica BDD (Behavior Driven-development com a ferramenta Cucumber e tambem utilizando linguagem Gherkin.
 
 3. 2 Projetos de Testes de API:
