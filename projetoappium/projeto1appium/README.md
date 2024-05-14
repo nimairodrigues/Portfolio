@@ -2,6 +2,8 @@
 
 Vídeo da execução dos testes incluindo execução em núvem de um cenário de teste (legenda explicativa): https://youtu.be/usp-XjzAx28
 
+Vídeo da execução dos testes em ambiente local completa: https://youtu.be/JyL6rPNIpkw
+
 Objeto de teste: aplicativo do instagram.
 
 --
