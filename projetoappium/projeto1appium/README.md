@@ -1,8 +1,6 @@
 # Projeto 1 de testes Mobile Android usando Appium:
 
-Vídeo da execução dos testes: 
-
-Vídeo da execução dos testes na nuvem com legenda explicativa: 
+Vídeo da execução dos testes incluindo execução em núvem de um cenário de teste (legenda explicativa): https://youtu.be/usp-XjzAx28
 
 Objeto de teste: aplicativo do instagram.
 
