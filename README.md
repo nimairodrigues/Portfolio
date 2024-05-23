@@ -13,7 +13,7 @@ Neste portfólio conterá:
     2. [ _NÃO INICIADO_ ] 1 Além do Appium com Java, utilizando técnica BDD (Behavior Driven-development com a ferramenta Cucumber e tambem utilizando linguagem Gherkin.
 
 3. 2 Projetos de Testes de API:
-    1. [ _NÃO INICIADO_ ] 1 Utilizando Restassured.
+    1. [ _EM ANDAMENTO_ ] 1 Utilizando Restassured.
     2. [ _NÃO INICIADO_ ] 1 Utilizando Postman.
 
 4. 1 Projeto de Testes de Desempenho com JMeter.
