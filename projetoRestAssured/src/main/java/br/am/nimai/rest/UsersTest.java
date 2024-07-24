@@ -3,16 +3,10 @@ package br.am.nimai.rest;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-import org.hamcrest.Matchers;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.builder.ResponseSpecBuilder;
-import io.restassured.filter.log.LogDetail;
-import io.restassured.specification.RequestSpecification;
-import io.restassured.specification.ResponseSpecification;
 
 public class UsersTest {
 	
