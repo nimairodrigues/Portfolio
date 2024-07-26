@@ -14,5 +14,4 @@ import br.am.nimai.rest.UsersTest;
 })
 public class SuiteGeral {
 	
-	
 }
