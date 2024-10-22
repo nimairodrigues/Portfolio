@@ -11,7 +11,6 @@ Contexto do defeito:
 - Atividade de teste: Teste de sistema
 - Fase do SDLC: Desenvolvimento
 - Tipo de teste: Teste funcional
-- Dados de teste:
 
 Descrição da falha: 
 Ao realizar a requisição GET de um produto utilizando uma letra no lugar do id no endpoint 'https://fakestoreapi.com/products/b' resulta em código 200 e sem body.
@@ -41,7 +40,6 @@ Contexto do defeito:
 - Atividade de teste: Teste de sistema
 - Fase do SDLC: Desenvolvimento
 - Tipo de teste: Teste funcional
-- Dados de teste:
 
 Descrição da falha: 
 Ao realizar a requisição GET de um produto utilizando o id '0' no endpoint 'https://fakestoreapi.com/products/0' resulta em código 200 e sem body.
@@ -72,7 +70,6 @@ Contexto do defeito:
 - Atividade de teste: Teste de sistema
 - Fase do SDLC: Desenvolvimento
 - Tipo de teste: Teste funcional
-- Dados de teste:
 
 Descrição da falha: 
 Ao realizar a requisição GET das categorias 'https://fakestoreapi.com/products/categories' a categoria 'Sports' não aparece no corpo.
