@@ -11,16 +11,7 @@ import br.am.nimai.page.LoginPage;
 public class LoginTest extends BaseTest{
 	
 	LoginPage loginPage = new LoginPage();
-	CadastroPage cadastroPage = new CadastroPage();
-	
-	@Before
-	public void setup() throws InterruptedException {
-//		loginPage.clicarRegistrar();
-//		cadastroPage.cadastrarUsuario();
-//		
-//		Thread.sleep(3000);
-	}
-	
+	CadastroPage cadastroPage = new CadastroPage();	
 	
 	@Test
 	public void CT_001_RealizarLogin() {

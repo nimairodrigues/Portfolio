@@ -39,10 +39,10 @@ public class CadastroPage extends BasePage {
 	}
 	
 	public void cadastrarUsuario() {
-		escreverEmail("nimai@qa.com");
+		escreverEmail("nimaiqa@test.com");
 		escreverNome("Nimai");
-		escreverSenha("teste");
-		escreverConfirmarSenha("teste");
+		escreverSenha("nimai123");
+		escreverConfirmarSenha("nimai123");
 		clicarCadastrar();
 		clicarFecharConfirm();
 	}
