@@ -43,4 +43,8 @@ public class BasePage {
 		return elements.size() > 0;
 	}
 	
+	protected void limparCampo(String xpath) {
+		DriverFactory.getDriver().findElement(By.xpath(xpath)).clear();
+	}
+	
 }

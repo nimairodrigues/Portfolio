@@ -8,13 +8,13 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/main/resources/features/login.feature",
+		features = "src/main/resources/features/transferencia.feature",
 		glue = "br.am.nimai.steps",
+		tags = "",
 		plugin = {"pretty", "summary", "html:target/report-html", "json:target/report.json"},
 		monochrome = false,
 		snippets = SnippetType.CAMELCASE,
 		dryRun = false
-		
 		)
 public class RunnerTest {
 

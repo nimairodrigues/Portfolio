@@ -46,11 +46,19 @@ public class LoginPage extends BasePage{
 	}
 	
 	public String pegarTextoWarningEmail() {
-		return pegarTextXpath("//*[@for='email']/..//*[@class='input__warging']");
+		return pegarTextXpath("//*[@class='card__login']//*[@for='email']/..//*[@class='input__warging']");
 	}
 
 	public Object pegarTextoWarningSenha() {
-		return pegarTextXpath("//*[@for='password']/..//*[@class='input__warging']");
+		return pegarTextXpath("//*[@class='card__login']//*[@for='password']/..//*[@class='input__warging']");
 	}
 	
+	public void realizarLogin(String email, String senha) {
+		escreverEmail(email);
+		escreverSenha(senha);
+		clicarAcessar();
+		
+		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='textBalance']")));
+	}
 }

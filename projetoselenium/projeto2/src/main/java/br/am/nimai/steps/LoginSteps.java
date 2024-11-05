@@ -39,28 +39,26 @@ public class LoginSteps extends BaseTest {
 	
 	@Dado("que sou um usuário")
 	public void queSouUmUsuário() {
-	    //nada
 	}
 
 	@Dado("que tenho uma conta criada")
 	public void queTenhoUmaContaCriada() {
 	    //necessário criar conta
 		loginPage.clicarRegistrar();
-		cadastroPage.cadastrarUsuario();
+		cadastroPage.cadastrarUsuario("nimaiqa@test.com", "Nimai", "nimai123", "nimai123");
 	}
 
 	@Dado("que estou na tela de login")
 	public void queEstouNaTelaDeLogin() {
-	    // Write code here that turns the phrase above into concrete actions
 	    
 	}
 
-	@Quando("eu digitar o e-mail {string}")
+	@Quando("eu digitar o e-mail {string} na tela de login")
 	public void euDigitarOEMail(String string) {
 		loginPage.escreverEmail(string);
 	}
 
-	@Quando("digitar a senha {string}")
+	@Quando("digitar a senha {string} na tela de login")
 	public void digitarASenha(String string) {
 		loginPage.escreverSenha(string);
 	}
@@ -76,7 +74,8 @@ public class LoginSteps extends BaseTest {
 	}
 
 	@Então("deve aparecer a dashboard do usuário")
-	public void deveAparecerADashboardDoUsuário() {
+	public void deveAparecerADashboardDoUsuário() throws InterruptedException {
+		Thread.sleep(1000);
 		Assert.assertTrue(loginPage.existeMsgBemVindo());
 	}
 	
@@ -85,17 +84,17 @@ public class LoginSteps extends BaseTest {
 		Assert.assertTrue(loginPage.existeMensagemDeSenhaErrada());
 	}
 	
-	@Então("deve informar que o campo e-mail é obrigatório")
+	@Então("deve informar que o campo e-mail é obrigatório na tela de login")
 	public void deveInformarQueOCampoEMailÉObrigatório() {
 		Assert.assertEquals("É campo obrigatório", loginPage.pegarTextoWarningEmail());
 	}
 
-	@Então("deve informar que o campo senha é obrigatório")
+	@Então("deve informar que o campo senha é obrigatório na tela de login")
 	public void deveInformarQueOCampoSenhaÉObrigatório() {
 		Assert.assertEquals("É campo obrigatório", loginPage.pegarTextoWarningSenha());
 	}
 	
-	@Então("deve informar que o formato do e-mail está inválido")
+	@Então("deve informar que o formato do e-mail está inválido na tela de login")
 	public void deveInformarQueOFormatoDoEMailEstáInválido() {
 		Assert.assertEquals("Formato inválido", loginPage.pegarTextoWarningEmail());
 	}
