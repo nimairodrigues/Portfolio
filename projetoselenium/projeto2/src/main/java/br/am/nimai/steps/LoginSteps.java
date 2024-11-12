@@ -10,7 +10,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.am.nimai.core.BaseTest;
 import br.am.nimai.core.DriverFactory;
 import br.am.nimai.page.CadastroPage;
 import br.am.nimai.page.LoginPage;
@@ -20,11 +19,14 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 
-public class LoginSteps extends BaseTest {
+public class LoginSteps {
 	
+	//@Before (do cucumber) para ser executado antes de cada cenário
 	@Before
-	public void t() {
+	public void iniciar() {
+		//acessando o site da bugbank
 		DriverFactory.getDriver().get("https://bugbank.netlify.app/");
+		//esperando um elemento na tela aparecer para poder começar as ações dos testes
 		WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@class='styles__WarnigWrapper-sc-1ota0lw-0 kpiCJH']")));
 	}
@@ -75,7 +77,7 @@ public class LoginSteps extends BaseTest {
 
 	@Então("deve aparecer a dashboard do usuário")
 	public void deveAparecerADashboardDoUsuário() throws InterruptedException {
-		Thread.sleep(1000);
+//		Thread.sleep(1000);
 		Assert.assertTrue(loginPage.existeMsgBemVindo());
 	}
 	

@@ -1,21 +1,16 @@
 package br.am.nimai.page;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import br.am.nimai.core.BasePage;
-import br.am.nimai.core.DriverFactory;
 
 public class LoginPage extends BasePage{
 	
 	public void escreverEmail(String email) {
+		esperarVisibilidadeDeElemento("//input[@type='email']");
 		escreverPorXpath("//input[@type='email']", email);
 	}
 	
 	public void escreverSenha(String senha) {
+		esperarVisibilidadeDeElemento("//input[@type='email']");
 		escreverPorXpath("//input[@type='password']", senha);
 	}
 
@@ -25,12 +20,12 @@ public class LoginPage extends BasePage{
 	
 	public void clicarRegistrar() {
 		clicarPorXpath("//button[@class='style__ContainerButton-sc-1wsixal-0 ihdmxA button__child']");
+		esperarVisibilidadeDeElemento("//*[@class='card__register']");
 	}
 	
 	public boolean existeMsgBemVindo() {
 		//Esperar até o id=textBalance aparecer para continuar o fluxo
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='textBalance']")));
+		esperarVisibilidadeDeElemento("//*[@id='textBalance']");
 		
 		//realizar a busca do texto e retornar se existe ou não
 		return existeElementoPorTexto("Olá Nimai,");
@@ -38,18 +33,19 @@ public class LoginPage extends BasePage{
 	
 	public boolean existeMensagemDeSenhaErrada() {
 		//Esperar até o id=textBalance aparecer para continuar o fluxo
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='modalText']")));
+		esperarVisibilidadeDeElemento("//*[@id='modalText']");
 		
 		//realizar a busca do texto e retornar se existe ou não
 		return existeElementoPorTexto("Usuário ou senha inválido.\nTente novamente ou verifique suas informações!");
 	}
 	
 	public String pegarTextoWarningEmail() {
+		//vai retornar o texto do elemento
 		return pegarTextXpath("//*[@class='card__login']//*[@for='email']/..//*[@class='input__warging']");
 	}
 
 	public Object pegarTextoWarningSenha() {
+		//vai retornar o texto do elemento
 		return pegarTextXpath("//*[@class='card__login']//*[@for='password']/..//*[@class='input__warging']");
 	}
 	
@@ -58,7 +54,6 @@ public class LoginPage extends BasePage{
 		escreverSenha(senha);
 		clicarAcessar();
 		
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='textBalance']")));
+		esperarVisibilidadeDeElemento("//*[@id='textBalance']");
 	}
 }

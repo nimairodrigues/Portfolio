@@ -1,7 +1,5 @@
 package br.am.nimai.core;
 
-import java.time.Duration;
-
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,18 +15,23 @@ public class DriverFactory {
 	//Criando o driver
 	public static WebDriver getDriver() {
 		if(driver == null) {
+		//escolhendo o navegador a ser utilizado
 		driver = new FirefoxDriver();
+		
+		//escolhendo a dimensão do navegador
 		driver.manage().window().setSize(new Dimension(1200, 900));
 		}
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		//retornando o driver
 		return driver;
 	}
 	
 	//Finalizando o driver
 	public static void killDriver() {
 		if(driver != null) {
-		driver.quit();
-		driver = null;
+			//fechar o driver
+			driver.quit();
+			driver = null;
 		}
 	}
 }

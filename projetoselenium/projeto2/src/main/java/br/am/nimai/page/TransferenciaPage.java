@@ -1,13 +1,6 @@
 package br.am.nimai.page;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import br.am.nimai.core.BasePage;
-import br.am.nimai.core.DriverFactory;
 
 public class TransferenciaPage extends BasePage {
 	
@@ -37,8 +30,7 @@ public class TransferenciaPage extends BasePage {
 	
 	public String pegarMensagemTransferenciaRealizada() {
 		//Esperar até o id=textBalance aparecer para continuar o fluxo
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='modalText']")));
+		esperarVisibilidadeDeElemento("//*[@id='modalText']");
 		
 		//realizar a busca do texto e retornar se existe ou não
 		return pegarTextXpath("//*[@id='modalText']");

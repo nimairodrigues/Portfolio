@@ -2,16 +2,14 @@ package br.am.nimai.steps;
 
 import org.junit.Assert;
 
-import br.am.nimai.core.BaseTest;
 import br.am.nimai.page.CadastroPage;
 import br.am.nimai.page.LoginPage;
 import br.am.nimai.page.TransferenciaPage;
-import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 
-public class TransferenciaSteps extends BaseTest {
+public class TransferenciaSteps {
 	
 	TransferenciaPage transferenciaPage = new TransferenciaPage();
 	CadastroPage cadastroPage = new CadastroPage();
@@ -21,10 +19,7 @@ public class TransferenciaSteps extends BaseTest {
 	
 	@Dado("que estou na dashboard de usuário")
 	public void queEstouNaDashboardDeUsuário() throws InterruptedException {
-		loginPage.clicarRegistrar();
-		cadastroPage.cadastrarUsuario("nimaiqa@test.com", "Nimai", "nimai123", "nimai123");
 	    loginPage.realizarLogin("nimaiqa@test.com", "nimai123");
-	    Thread.sleep(3000);
 	}
 	
 	@Dado("que há uma conta criada para receber o valor")
@@ -59,7 +54,6 @@ public class TransferenciaSteps extends BaseTest {
 	@Quando("digitar o valor da transferência {string}")
 	public void digitarUmValorDaTransferência(String valor) throws InterruptedException {
 		transferenciaPage.escreverValor(valor);
-		Thread.sleep(5000);
 	}
 	
 	@Quando("digitar a descrição {string}")
@@ -94,6 +88,11 @@ public class TransferenciaSteps extends BaseTest {
 
 	@Então("deve informar que o campo número da conta está inválido")
 	public void deveInformarQueOCampoValorNúmeroDaContaEstáInválido() {
+		Assert.assertEquals("É campo obrigatório", transferenciaPage.pegarTextoWarningNumConta());
+	}
+	
+	@Então("deve informar que o campo valor da transferência é obrigatório")
+	public void deveInformarQueOCampoValorDaTransferênciaÉObrigatório() {
 		Assert.assertEquals("É campo obrigatório", transferenciaPage.pegarTextoWarningTransferValue());
 	}
 

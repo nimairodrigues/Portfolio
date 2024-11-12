@@ -2,14 +2,13 @@ package br.am.nimai.steps;
 
 import org.junit.Assert;
 
-import br.am.nimai.core.BaseTest;
 import br.am.nimai.page.CadastroPage;
 import br.am.nimai.page.LoginPage;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 
-public class CadastroSteps extends BaseTest {
+public class CadastroSteps {
 	
 	CadastroPage cadastroPage = new CadastroPage();
 	LoginPage loginPage = new LoginPage();
