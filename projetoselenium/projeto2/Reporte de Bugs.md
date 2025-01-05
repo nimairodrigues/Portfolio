@@ -1,188 +1,117 @@
-# Reporte de Bugs
+# Relatório de Bugs
 
+---
 
-## Bug 001 - breve resumo
+## Bug 001 - Campo "Nome" não é marcado como obrigatório
 
-Data da anomalia encontrada: ‎12/11/‎2024
+### **Data da Anomalia Encontrada**  
+12/11/2024
 
-Organização emissora: Quality Assurance LTDA.
+### **Organização Emissora**  
+Quality Assurance LTDA.
 
-Autor e cargo: Nimai Rodrigues, Analista de Testes (Qa)
+### **Autor e Cargo**  
+Nimai Rodrigues, Analista de Testes (QA)
 
-Identificação do Objeto de Teste: Formulário da tela de Cadastro.
+### **Objeto de Teste**  
+Formulário da tela de Cadastro
 
-Identificação do Ambiente de Teste:
-  1.  Sistema Operacional: Windows 10 Pro (64-bit) Version 22H2
-  2.  Navegador: Microsoft Edge Version 131.0.2903.70 (Official build) (64-bit)
+### **Ambiente de Teste**  
+- **Sistema Operacional:** Windows 10 Pro (64-bit) Version 22H2  
+- **Navegador:** Microsoft Edge Version 131.0.2903.70 (Official build) (64-bit)
 
-Contexto do defeito:
+### **Contexto do Defeito**  
+Ao acessar a tela de cadastro e clicar no botão "Cadastrar" sem preencher os campos, o sistema não exibe uma mensagem informando que o campo "Nome" é obrigatório.
 
-Descrição da falha: [passo a passo, captura de tela/gravação]
+### **Descrição da Falha**  
+#### **Passo a Passo**  
+1. Acessar o sistema [bugbank.netlify.app](https://bugbank.netlify.app).  
+2. Clicar no botão **"Registrar"**.  
+3. Clicar no botão **"Cadastrar"**.  
 
-Resultado esperado:
+#### **Resultado Esperado**  
+O sistema deve informar ao usuário que o campo "Nome" é obrigatório e impedir o envio do formulário enquanto o campo não for preenchido.
 
-Resultado obtido:
+#### **Resultado Obtido**  
+O sistema permite a submissão do formulário sem preencher o campo "Nome", sem exibir mensagens de validação.
 
-Severidade do defeito [nos interesses dos stakeholders ou requisitos]
+### **Severidade do Defeito**  
+**Média**  
+*O defeito permite a criação de usuários sem nome, comprometendo a integridade dos dados.*
 
-Prioridade de correção:
+### **Prioridade de Correção**  
+**Média**
 
-Status do defeito:
+### **Status do Defeito**  
+**Em Aberto**
 
-Referências:
+### **Evidências**  
+[Link para evidência](https://github.com/user-attachments/assets/9cbb16cb-0ebd-4221-9d09-3a410c2b3149)
 
+### **Referências**  
+Caso de Teste CT-001
 
-## Bug 002 - breve resumo
+---
 
-Data da anomalia encontrada: 12/11/‎2024
+## Bug 002 - Resumo Pendente
 
-Organização emissora: Quality Assurance LTDA.
+### **Data da Anomalia Encontrada**  
+12/11/2024
 
-Autor e cargo: Nimai Rodrigues, Analista de Testes (Qa)
+### **Organização Emissora**  
+Quality Assurance LTDA.
 
-Identificação do Objeto de Teste: Formulário da tela de Cadastro.
+### **Autor e Cargo**  
+Nimai Rodrigues, Analista de Testes (QA)
 
-Identificação do Ambiente de Teste:
-  1.  Sistema Operacional: Windows 10 Pro (64-bit) Version 22H2
-  2.  Navegador: Microsoft Edge Version 131.0.2903.70 (Official build) (64-bit)
+### **Objeto de Teste**  
+Formulário da tela de Cadastro
 
-Contexto do defeito:
+### **Ambiente de Teste**  
+- **Sistema Operacional:** Windows 10 Pro (64-bit) Version 22H2  
+- **Navegador:** Microsoft Edge Version 131.0.2903.70 (Official build) (64-bit)
 
-Descrição da falha: [passo a passo, captura de tela/gravação]
+### **Contexto do Defeito**  
+*(Informação pendente)*
 
-Resultado esperado:
+### **Descrição da Falha**  
+*(Informação pendente)*
 
-Resultado obtido:
+#### **Passo a Passo**  
+*(Informação pendente)*
 
-Severidade do defeito [nos interesses dos stakeholders ou requisitos]
+#### **Resultado Esperado**  
+*(Informação pendente)*
 
-Prioridade de correção:
+#### **Resultado Obtido**  
+*(Informação pendente)*
 
-Status do defeito:
+### **Severidade do Defeito**  
+*(Informação pendente)*
 
-Referências:
+### **Prioridade de Correção**  
+*(Informação pendente)*
 
+### **Status do Defeito**  
+**Em Aberto**
 
-## Bug 003 - breve resumo
+### **Evidências**  
+*(Nenhuma evidência fornecida)*
 
-Data da anomalia encontrada: 12/11/‎2024
+### **Referências**  
+*(Nenhuma referência fornecida)*
 
-Organização emissora: Quality Assurance LTDA.
+---
 
-Autor e cargo: Nimai Rodrigues, Analista de Testes (Qa)
+## Bug 003 a 006 - Resumo Pendente
 
-Identificação do Objeto de Teste: Formulário da tela de Transferência.
+### Estrutura Repetitiva  
+Os bugs 003 a 006 possuem a mesma estrutura geral e faltam informações detalhadas, como contexto, descrição da falha, passos, resultados esperados e obtidos. É recomendável preencher os detalhes conforme a descoberta.
 
-Identificação do Ambiente de Teste:
-  1.  Sistema Operacional: Windows 10 Pro (64-bit) Version 22H2
-  2.  Navegador: Microsoft Edge Version 131.0.2903.70 (Official build) (64-bit)
+---
 
-Contexto do defeito:
-
-Descrição da falha: [passo a passo, captura de tela/gravação]
-
-Resultado esperado:
-
-Resultado obtido:
-
-Severidade do defeito [nos interesses dos stakeholders ou requisitos]
-
-Prioridade de correção:
-
-Status do defeito:
-
-Referências:
-
-
-## Bug 004 - breve resumo
-
-Data da anomalia encontrada: 12/11/‎2024
-
-Organização emissora: Quality Assurance LTDA.
-
-Autor e cargo: Nimai Rodrigues, Analista de Testes (Qa)
-
-Identificação do Objeto de Teste: Formulário da tela de Transferência.
-
-Identificação do Ambiente de Teste:
-  1.  Sistema Operacional: Windows 10 Pro (64-bit) Version 22H2
-  2.  Navegador: Microsoft Edge Version 131.0.2903.70 (Official build) (64-bit)
-
-Contexto do defeito:
-
-Descrição da falha: [passo a passo, captura de tela/gravação]
-
-Resultado esperado:
-
-Resultado obtido:
-
-Severidade do defeito [nos interesses dos stakeholders ou requisitos]
-
-Prioridade de correção:
-
-Status do defeito:
-
-Referências:
-
-
-## Bug 005 - breve resumo
-
-Data da anomalia encontrada: 12/11/‎2024
-
-Organização emissora: Quality Assurance LTDA.
-
-Autor e cargo: Nimai Rodrigues, Analista de Testes (Qa)
-
-Identificação do Objeto de Teste: Formulário da tela de Transferência.
-
-Identificação do Ambiente de Teste:
-  1.  Sistema Operacional: Windows 10 Pro (64-bit) Version 22H2
-  2.  Navegador: Microsoft Edge Version 131.0.2903.70 (Official build) (64-bit)
-
-Contexto do defeito:
-
-Descrição da falha: [passo a passo, captura de tela/gravação]
-
-Resultado esperado:
-
-Resultado obtido:
-
-Severidade do defeito [nos interesses dos stakeholders ou requisitos]
-
-Prioridade de correção:
-
-Status do defeito:
-
-Referências:
-
-
-## Bug 006 - breve resumo
-
-Data da anomalia encontrada: 12/11/‎2024
-
-Organização emissora: Quality Assurance LTDA.
-
-Autor e cargo: Nimai Rodrigues, Analista de Testes (Qa)
-
-Identificação do Objeto de Teste: Formulário da tela de Transferência.
-
-Identificação do Ambiente de Teste:
-  1.  Sistema Operacional: Windows 10 Pro (64-bit) Version 22H2
-  2.  Navegador: Microsoft Edge Version 131.0.2903.70 (Official build) (64-bit)
-
-Contexto do defeito:
-
-Descrição da falha: [passo a passo, captura de tela/gravação]
-
-Resultado esperado:
-
-Resultado obtido:
-
-Severidade do defeito [nos interesses dos stakeholders ou requisitos]
-
-Prioridade de correção:
-
-Status do defeito:
-
-Referências:
+### **Notas Gerais**  
+- Certifique-se de preencher os campos ausentes em bugs incompletos.  
+- Forneça evidências (capturas de tela, links ou gravações) para todos os defeitos relatados.  
+- Padronize os resumos de cada bug para facilitar o entendimento.
 
