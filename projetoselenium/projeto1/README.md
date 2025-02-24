@@ -35,7 +35,7 @@ Não foi preciso apagar a massa de dados, mas era recomendável.
 
 ### Contém: <h3>
 
-Alguns [casos de Testes](https://github.com/nimairodrigues/Portfolio/blob/main/projetoselenium/projeto1/Casos%20de%20Testes%20em%20texto%20Markdown.md)
+Alguns [casos de Testes](https://docs.google.com/spreadsheets/d/1gasxWs3inaSN-MREu-cgsiRAQuAOkUWXKk0e_riNFrU/edit?usp=sharing)
 
 [Bug report](https://github.com/nimairodrigues/Portfolio/blob/main/projetoselenium/projeto1/Reporte%20de%20Bugs.md)
 
