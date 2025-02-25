@@ -1,0 +1,19 @@
+{
+  "name": "projetocypress",
+  "version": "1.0.0",
+  "description": "Portfólio contendo projetos pessoais com fins de mostrar meus conhecimentos para o cargo de Analista de Testes / Qa / Quality Assurance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^14.0.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/e2e/step_definitions"
+  }
+}
