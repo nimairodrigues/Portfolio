@@ -2,7 +2,7 @@ import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import loginPage from '../../../support/pageObjects/loginPage'
 
 Given('Estou na tela de login', () => {
-    cy.visit("https://opensource-demo.orangehrmlive.com")
+    cy.acessarSistema()
 })
 
 Given('Tenho uma conta válida', () => {

@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import loginPage from "./pageObjects/loginPage"
+
+Cypress.Commands.add('logar', (username, password) => {
+    loginPage.logar(username, password)
+})
+
+Cypress.Commands.add('acessarSistema', () => {
+    cy.visit("https://opensource-demo.orangehrmlive.com")
+})

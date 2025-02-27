@@ -13,6 +13,12 @@ class LoginPage {
     clicarLogin() {
         cy.get('button[type=submit]').click()
     }
+
+    logar(username, password) {
+        this.digitarUsername(username)
+        this.digitarPassword(password)
+        this.clicarLogin()
+    }
     
     isDashboardVisible() {
         cy.get('div[class="oxd-grid-3 orangehrm-dashboard-grid"]').should('be.visible')
