@@ -106,6 +106,10 @@ class AdminPage {
             .should('have.text', textSpan)
     }
 
+    textSpanConfirmPassShouldBe(textSpan) {
+        cy.get('[class="oxd-form-row user-password-row"] [class="oxd-grid-item oxd-grid-item--gutters"] span').should('have.text', textSpan)
+    }
+
 }
 
 export default new AdminPage

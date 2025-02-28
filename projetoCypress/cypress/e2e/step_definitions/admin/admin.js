@@ -85,3 +85,7 @@ Then('Deve aparecer uma mensagem span embaixo de username escrito {string}', tex
 Then('Deve aparecer uma mensagem span embaixo de password escrito {string}', textSpan => {
     adminPage.textSpanPasswordShouldBe(textSpan)
 })
+
+Then('Deve aparecer uma mensagem span embaixo de confirm password escrito {string}', textSpan => {
+    adminPage.textSpanConfirmPassShouldBe(textSpan)
+})
