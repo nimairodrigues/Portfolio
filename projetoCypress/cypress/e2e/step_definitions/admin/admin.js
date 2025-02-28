@@ -81,3 +81,7 @@ Then('Deve aparecer um toast informando {string}', textoToast => {
 Then('Deve aparecer uma mensagem span embaixo de username escrito {string}', textSpan => {
     adminPage.textSpanUsernameShouldBe(textSpan)
 })
+
+Then('Deve aparecer uma mensagem span embaixo de password escrito {string}', textSpan => {
+    adminPage.textSpanPasswordShouldBe(textSpan)
+})
