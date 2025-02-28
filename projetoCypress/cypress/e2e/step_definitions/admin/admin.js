@@ -3,6 +3,8 @@ import adminPage from "../../../support/pageObjects/adminPage";
 import loginPage from '../../../support/pageObjects/loginPage';
 import menuPage from '../../../support/pageObjects/menuPage';
 
+let username = null
+
 // G I V E N 
 Given('Eu estou logado no sistema', () => {
     cy.acessarSistema()
@@ -12,6 +14,13 @@ Given('Eu estou logado no sistema', () => {
 
 And('Estou na tela de dashboard', () => {
     loginPage.isDashboardVisible()
+})
+
+And('Tenho um usuário para utilizar', () => {
+    menuPage.acessarOpcaoMenu('Admin')
+    username = adminPage.criarUser('a', 'Enabled', 'juliano', 'senhaqualquer1')
+    menuPage.acessarOpcaoMenu('Dashboard')
+    
 })
 
 // W H E N 
@@ -53,10 +62,22 @@ And('Clicar no botão de salvar', () => {
 
 And('Clicar no ícone de excluir de um usuário qualquer', () => {
     // adminPage.getLinhaDoUser('Admin')
-    adminPage.apagarUser('Admin')
+    adminPage.clicarApagarUser(username)
+})
+
+And('Clicar para confirmar a exclusão', () => {
+    adminPage.clicarConfirmApagarUser()
+})
+
+And('Clicar no ícone de editar de um usuário qualquer', () => {
+    adminPage.clicarEditarUser(username)
 })
 
 // T H E N
 Then('Deve aparecer um toast informando {string}', textoToast => {
-    adminPage.msgToastContains('Successfully Saved')
+    adminPage.msgToastContains(textoToast)
+})
+
+Then('Deve aparecer uma mensagem span embaixo de username escrito {string}', textSpan => {
+    adminPage.textSpanUsernameShouldBe(textSpan)
 })

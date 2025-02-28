@@ -24,8 +24,9 @@ class AdminPage {
     }
 
     digitarUsername(username) {
-        const numeroUnico = Date.now().toString().slice(-6);
-        cy.get('[class="oxd-grid-2 orangehrm-full-width-grid"]').first().find('input[class="oxd-input oxd-input--active"]').type(username + numeroUnico)
+        const numeroUnico = Date.now().toString().slice(-3);
+        cy.get('[class="oxd-grid-2 orangehrm-full-width-grid"]').first().find('input[class="oxd-input oxd-input--active"]').clear().type(username + numeroUnico)
+        return username + numeroUnico
     }
 
     digitarPassword(password) {
@@ -49,32 +50,19 @@ class AdminPage {
         cy.get('[class="oxd-toast-container oxd-toast-container--bottom"]').should('contain', textoToast)
     }
 
-    pegarColuna4(string) {
-        let colunaIndex = 0
-        cy.get(".oxd-table .oxd-table-header > div > div").each($el => {
-            colunaIndex++ 
-            console.log("Coluna: " + colunaIndex + "\n Element: " + $el.text().includes(string))
-        })
+    criarUser(employeeName, statusOption, username, password) {
+        this.clicarBotaoNovoUsuario()
+        this.selectRoleNumOption(1)
+        this.digitarEmployeeName(employeeName)
+        this.selectStatusNameOption(statusOption)
+        this.digitarUsername(username)
+        this.digitarPassword(password)
+        this.digitarConfirmPassword(password)
+        this.clicarSalvar()
+        cy.get('[class="oxd-toast-container oxd-toast-container--bottom"]').should('be.visible')
     }
 
-    apagarUser1(username) {
-        let linhaIndex = -1
-        let index = -1
-        cy.get(".oxd-table .oxd-table-body div[role='row'] > [class='oxd-table-cell oxd-padding-cell']:nth-child(2)").each($el => {
-            index++
-            if($el.text().includes(username)) {
-                linhaIndex = index
-            }
-            // console.log('Linha: ' + linhaIndex + '\n Element: ' + $el.text().includes(username))
-            console.log('Linha: ' + linhaIndex + '\n Element: ' + $el.text())
-        }).then(() => {
-            cy.get(".oxd-table .oxd-table-body div[role='row'] > [class='oxd-table-cell oxd-padding-cell']:nth-child(6):eq("+linhaIndex+") i[class='oxd-icon bi-trash']").then(el => {
-                console.log(el)
-            })
-        })
-    }
-
-    apagarUser(username) {
+    clicarApagarUser(username) {
         let linhaIndex = -1
         let index = -1
         cy.get(".oxd-table .oxd-table-body div[role='row'] > [class='oxd-table-cell oxd-padding-cell']:nth-child(2)").each($el => {
@@ -84,10 +72,33 @@ class AdminPage {
                 linhaIndex = index
             }
         }).then(() => {
-            cy.get(".oxd-table .oxd-table-body div[role='row'] > [class='oxd-table-cell oxd-padding-cell']:nth-child(6):eq("+linhaIndex+") i[class='oxd-icon bi-trash']").then(el => {
-                console.log(el)
-            }).click()
+            //se eu deixar esse cara fora do then() ele me retorna o último elemento da linha da tabela
+            cy.get(".oxd-table .oxd-table-body div[role='row'] > [class='oxd-table-cell oxd-padding-cell']:nth-child(6):eq("+linhaIndex+") i[class='oxd-icon bi-trash']").click()
         })
+    }
+
+    clicarConfirmApagarUser() {
+        cy.get("[class='oxd-dialog-container-default--inner'] [class='oxd-button oxd-button--medium oxd-button--label-danger orangehrm-button-margin']").click()
+    }
+
+    clicarEditarUser(username) {
+        let linhaIndex = -1
+        let index = -1
+        cy.get(".oxd-table .oxd-table-body div[role='row'] > [class='oxd-table-cell oxd-padding-cell']:nth-child(2)").each($el => {
+            index++
+            console.log("Linha: " + index + " " + ($el.text() === username))
+            if($el.text() === username) {
+                linhaIndex = index
+            }
+        }).then(() => {
+            //se eu deixar esse cara fora do then() ele me retorna o último elemento da linha da tabela
+            cy.get(".oxd-table .oxd-table-body div[role='row'] > [class='oxd-table-cell oxd-padding-cell']:nth-child(6):eq("+linhaIndex+") i[class='oxd-icon bi-pencil-fill']").click()
+        })
+    }
+
+    textSpanUsernameShouldBe(textSpan) {
+        cy.get('[class="oxd-grid-2 orangehrm-full-width-grid"]:eq(0) [class="oxd-input-group oxd-input-field-bottom-space"]:eq(3) span')
+            .should('have.text', textSpan)
     }
 
 }
