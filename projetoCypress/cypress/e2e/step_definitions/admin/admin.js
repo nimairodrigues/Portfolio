@@ -73,6 +73,14 @@ And('Clicar no ícone de editar de um usuário qualquer', () => {
     adminPage.clicarEditarUser(username)
 })
 
+And('Selecionar opcao no campo User Role do filtro opcao administrador', () => {
+    adminPage.selectFilterUserRole('Admin')
+})
+
+And('Clicar no botão de search', () => {
+    adminPage.clicarBotaoSearch()
+})
+
 // T H E N
 Then('Deve aparecer um toast informando {string}', textoToast => {
     adminPage.msgToastContains(textoToast)
@@ -88,4 +96,20 @@ Then('Deve aparecer uma mensagem span embaixo de password escrito {string}', tex
 
 Then('Deve aparecer uma mensagem span embaixo de confirm password escrito {string}', textSpan => {
     adminPage.textSpanConfirmPassShouldBe(textSpan)
+})
+
+Then('Deve aparecer uma mensagem span embaixo de user role escrito {string}', textSpan => {
+    adminPage.textSpanUserRoleShouldBe(textSpan)
+})
+
+Then('Deve aparecer apenas usuarios admin na tabela', () => {
+    adminPage.verificarUserRoleTable('Admin')
+})
+
+And('Deve aparecer uma mensagem span embaixo de employee name escrito {string}', textSpan => {
+    adminPage.textSpanEmployeeNameShouldBe(textSpan)
+})
+
+And('Deve aparecer uma mensagem span embaixo de status escrito {string}', textSpan => {
+    adminPage.textSpanStatusShouldBe(textSpan)
 })

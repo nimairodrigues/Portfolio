@@ -43,7 +43,6 @@ class AdminPage {
 
     clicarApagarUserQualquer() {
         const a = cy.get('.oxd-table .oxd-table-body > div:eq(0 > div > div:eq(1) > div').invoke('text')
-        console.log(a)
     }
 
     msgToastContains(textoToast) {
@@ -67,7 +66,6 @@ class AdminPage {
         let index = -1
         cy.get(".oxd-table .oxd-table-body div[role='row'] > [class='oxd-table-cell oxd-padding-cell']:nth-child(2)").each($el => {
             index++
-            console.log("Linha: " + index + " " + ($el.text() === username))
             if($el.text() === username) {
                 linhaIndex = index
             }
@@ -86,7 +84,6 @@ class AdminPage {
         let index = -1
         cy.get(".oxd-table .oxd-table-body div[role='row'] > [class='oxd-table-cell oxd-padding-cell']:nth-child(2)").each($el => {
             index++
-            console.log("Linha: " + index + " " + ($el.text() === username))
             if($el.text() === username) {
                 linhaIndex = index
             }
@@ -102,14 +99,47 @@ class AdminPage {
     }
 
     textSpanPasswordShouldBe(textSpan) {
-        cy.get('[class="oxd-form-row user-password-row"] [class="oxd-grid-item oxd-grid-item--gutters user-password-cell"] span:eq(1)')
-            .should('have.text', textSpan)
+        cy.get('[class="oxd-form-row user-password-row"] [class="oxd-grid-item oxd-grid-item--gutters user-password-cell"]:eq(0) span')
+            .should('contain', textSpan)
     }
 
     textSpanConfirmPassShouldBe(textSpan) {
         cy.get('[class="oxd-form-row user-password-row"] [class="oxd-grid-item oxd-grid-item--gutters"] span').should('have.text', textSpan)
     }
 
+    textSpanStatusShouldBe(textSpan) {
+        cy.get('[class="oxd-form-row"] > div > div:eq(2) span').should('have.text', textSpan)
+    }
+
+    textSpanUserRoleShouldBe(textSpan) {
+        cy.get('[class="oxd-form-row"] > div > div:eq(0) span').should('have.text', textSpan)
+    }
+
+    textSpanEmployeeNameShouldBe(textSpan) {
+        cy.get('[class="oxd-form-row"] > div > div:eq(0) span').should('have.text', textSpan)
+    }
+
+    selectFilterUserRole(roleName) {
+        cy.get('[class="oxd-select-text oxd-select-text--active"]:eq(0)').click()
+        cy.get("[class='oxd-select-dropdown --positon-bottom'] div:contains("+roleName+")").click()
+    }
+
+    clicarBotaoSearch() {
+        //antes de fazer a requisição que é após o click, foi necessário adicionar um intercept pra ele capturar a requisição e posteriormente
+        //colocar um wait nessa requisição para que ele possa continuar os testes após esse get (os testes são muito rápidos e não tava dando
+        //tempo para carregar a lista)
+        cy.intercept('GET', '/web/index.php/api/v2/admin/users?limit=50&offset=0&userRoleId=1&sortField=u.userName&sortOrder=ASC')
+            .as('getUsersList')
+        cy.get('[class="oxd-table-filter-area"] [type="submit"]').click()
+    }
+
+    verificarUserRoleTable(role) {
+        cy.wait('@getUsersList')
+
+        cy.get(".oxd-table .oxd-table-body div[role='row'] > [class='oxd-table-cell oxd-padding-cell']:nth-child(3)").each($el => {
+            cy.wrap($el).should('have.text', role)
+        })
+    }
 }
 
 export default new AdminPage
