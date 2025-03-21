@@ -33,6 +33,30 @@ And('Clicar no botão de save', () => {
     pimPage.clicarBotaoSave()
 })
 
+And('Clicar no switch de create login details', () => {
+    pimPage.clicarCreateLoginDetails()
+})
+
+And('Digitar no campo username {string}', username => {
+    pimPage.digitarUsername(username)
+})
+
+And('Digitar no campo password {string}', password => {
+    pimPage.digitarPassword(password)
+})
+
+And('Digitar no campo confirm password {string}', confirmPass => {
+    pimPage.digitarConfirmPassword(confirmPass)
+})
+
+And('Clicar no botão de help', () => {
+    pimPage.clicarHelp()
+})
+
+And('Digitar no campo de employee name de filtro {string} And clicar no botão de pesquisar Then Deve aparecer alguns usuarios no resultado da pesquisa', employeeName => {    
+    pimPage.escreveClicaEVerificaFiltro(employeeName)
+})
+
 Then('Deve aparecer um toast informando {string}', textoToast => {
     pimPage.msgToastContains(textoToast)
 })
@@ -43,6 +67,18 @@ Then('Deve aparecer uma mensagem span embaixo de first name escrito {string}', m
 
 Then('Deve aparecer uma mensagem span embaixo de employee id escrito {string}', msgSpan => {
     pimPage.textSpanEmployeeIdShouldBe(msgSpan)
+})
+
+Then('Deve aparecer uma mensagem span embaixo de username escrito {string}', msgSpan => {
+    pimPage.textSpanUsernameShouldBe(msgSpan)
+})
+
+And('Deve aparecer uma mensagem span embaixo de password escrito {string}', msgSpan => {
+    pimPage.textSpanPasswordShouldBe(msgSpan)
+})
+
+And('Deve aparecer uma mensagem span embaixo de confirm password escrito {string}', msgSpan => {
+    pimPage.textSpanConfirmPassShouldBe(msgSpan)
 })
 
 And('Deve aparecer uma mensagem span embaixo de last name escrito {string}', msgSpan => {
