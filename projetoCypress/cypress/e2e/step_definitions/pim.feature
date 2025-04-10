@@ -96,7 +96,7 @@ And Estou na tela de dashboard
 When Eu clicar em "PIM" na barra de menu
 And Clicar no botão de criar novo empregado
 And Clicar no botão de help
-@focus 
+
 Scenario: CT-32 Fazer pesquisa de nome de usuário na lista de empregados
 Given Eu estou logado no sistema
 And Estou na tela de dashboard
