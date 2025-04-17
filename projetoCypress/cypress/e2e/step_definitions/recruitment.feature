@@ -44,7 +44,6 @@ And Digitar no campo email o email "jurandir@email.com"
 And Clicar no botão de salvar
 Then Deve aparecer um toast informando "Successfully Saved"
 
-
 Scenario: CT-48 Apagar candidato
 Given Eu estou logado no sistema
 And Estou na tela de dashboard

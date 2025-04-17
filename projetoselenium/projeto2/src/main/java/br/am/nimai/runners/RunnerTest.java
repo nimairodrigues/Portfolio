@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		//Para indicar ao JUnit onde estão as features
-		features = "src/main/resources/features/",
+		features = "src/main/resources/features/login.feature",
 		
 		//Para indicar ao JUnit onde estão os steps
 		glue = "br.am.nimai.steps",

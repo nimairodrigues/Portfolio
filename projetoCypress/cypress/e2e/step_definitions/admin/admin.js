@@ -1,4 +1,7 @@
+// Importa os steps do Cucumber pro Cypress (Given, When, Then)
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+
+//Importando page para a classe de testes
 import adminPage from "../../../support/pageObjects/adminPage";
 import loginPage from '../../../support/pageObjects/loginPage';
 import menuPage from '../../../support/pageObjects/menuPage';
@@ -18,7 +21,7 @@ And('Estou na tela de dashboard', () => {
 
 And('Tenho um usuário para utilizar', () => {
     menuPage.acessarOpcaoMenu('Admin')
-    username = adminPage.criarUser('a', 'Enabled', 'juliano', 'senhaqualquer1')
+    adminPage.criarUser('a', 'Enabled', 'juliano', 'senhaqualquer1')
     menuPage.acessarOpcaoMenu('Dashboard')
     
 })
@@ -61,8 +64,9 @@ And('Clicar no botão de salvar', () => {
 })
 
 And('Clicar no ícone de excluir de um usuário qualquer', () => {
-    // adminPage.getLinhaDoUser('Admin')
-    adminPage.clicarApagarUser(username)
+    cy.get('@usernameEscrito').then(usernameEscrito => {
+        adminPage.clicarApagarUser(usernameEscrito)
+    })
 })
 
 And('Clicar para confirmar a exclusão', () => {
@@ -70,7 +74,9 @@ And('Clicar para confirmar a exclusão', () => {
 })
 
 And('Clicar no ícone de editar de um usuário qualquer', () => {
-    adminPage.clicarEditarUser(username)
+    cy.get('@usernameEscrito').then(usernameEscrito => {
+        adminPage.clicarEditarUser(usernameEscrito)
+    })
 })
 
 And('Selecionar opcao no campo User Role do filtro opcao administrador', () => {

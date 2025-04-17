@@ -1,4 +1,7 @@
+// Importa os steps do Cucumber pro Cypress (Given, When, Then)
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+
+//Importando page para a classe de testes
 import loginPage from "../../../support/pageObjects/loginPage"
 import menuPage from '../../../support/pageObjects/menuPage'
 import recruitmentPage from '../../../support/pageObjects/recruitmentPage'
@@ -12,6 +15,10 @@ Given('Eu estou logado no sistema', () => {
 
 And('Estou na tela de dashboard', () => {
     loginPage.isDashboardVisible()
+})
+
+And('Tenho um candidato adicionado', () => {
+    recruitmentPage.addNewCandidate('Jurandir3', 'Peixoto', 'jurandirpeixoto@email.com')
 })
 
 When('Eu clicar em {string} na barra de menu', menuOption => {
@@ -42,9 +49,6 @@ And('Selecionar opcao no campo Vacancy uma opcao qualquer', () => {
     recruitmentPage.selectVacancyNumOption(4)
 })
 
-And('Tenho um candidato adicionado', () => {
-    recruitmentPage.addNewCandidate('Jurandir3', 'Peixoto', 'jurandirpeixoto@email.com')
-})
 
 And('Clicar no ícone de lixeira de um candidato', () => {
     cy.get('@firstNameWritten').then(firstName => {

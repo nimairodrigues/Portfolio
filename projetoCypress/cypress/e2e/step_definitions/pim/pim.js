@@ -1,4 +1,7 @@
+// Importa os steps do Cucumber pro Cypress (Given, When, Then)
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+
+//Importando page para a classe de testes
 import loginPage from '../../../support/pageObjects/loginPage'
 import menuPage from '../../../support/pageObjects/menuPage'
 import pimPage from '../../../support/pageObjects/pimPage'
@@ -11,6 +14,10 @@ Given('Eu estou logado no sistema', () => {
 
 And('Estou na tela de dashboard', () => {
     loginPage.isDashboardVisible()
+})
+
+And('Tenho um usuario criado para utilizar', () => {
+    pimPage.criarNovoEmployee('Marcelo', 'Freitas')
 })
 
 When('Eu clicar em {string} na barra de menu', (opcaoMenu) => {
@@ -53,8 +60,14 @@ And('Clicar no botão de help', () => {
     pimPage.clicarHelp()
 })
 
-And('Digitar no campo de employee name de filtro {string} And clicar no botão de pesquisar Then Deve aparecer alguns usuarios no resultado da pesquisa', employeeName => {    
-    pimPage.escreveClicaEVerificaFiltro(employeeName)
+And('Digitar no campo de employee name de filtro', () => {
+    cy.get('@firstNameUserCreated').then(firstName => {
+        pimPage.typeFilterEmployeeName(firstName)
+    })
+})
+
+And('Clicar no botão de pesquisar', () => {
+    pimPage.clicarBotaoSearch()
 })
 
 Then('Deve aparecer um toast informando {string}', textoToast => {
@@ -71,6 +84,12 @@ Then('Deve aparecer uma mensagem span embaixo de employee id escrito {string}', 
 
 Then('Deve aparecer uma mensagem span embaixo de username escrito {string}', msgSpan => {
     pimPage.textSpanUsernameShouldBe(msgSpan)
+})
+
+Then('Deve aparecer alguns usuarios no resultado da pesquisa', () => {
+    cy.get('@iniciaisDoNome').then(initialsName => {
+        pimPage.verifyNameUsersTable(initialsName)
+    }) 
 })
 
 And('Deve aparecer uma mensagem span embaixo de password escrito {string}', msgSpan => {
