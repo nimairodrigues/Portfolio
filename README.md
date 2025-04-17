@@ -6,7 +6,7 @@ Neste portfólio conterá:
 
 1. 2 Projetos de Testes Web com Selenium: 
    1. [ _CONCLUÍDO_ ] [ [Link do projeto](https://github.com/nimairodrigues/Portfolio/tree/main/projetoselenium/projeto1) ] 1 Apenas utilizando Selenium com Java, com testes paralelos e testes usando o Selenium Grid.
-   2. [ _EM ANDAMENTO_ ] 1 Além do Selenium com Java, utilizando técnica BDD (Behavior Driven-development com a ferramenta Cucumber e tambem utilizando linguagem Gherkin.
+   2. [ _CONCLUÍDO_ ] [ [Link do projeto](https://github.com/nimairodrigues/Portfolio/tree/main/projetoselenium/projeto2) ] 1 Além do Selenium com Java, utilizando técnica BDD (Behavior Driven-development com a ferramenta Cucumber e tambem utilizando linguagem Gherkin.
 
 2. 2 Projetos de Testes Mobile com Appium:
     1. [ _CONCLUÍDO_ ] [ [Link do projeto](https://github.com/nimairodrigues/Portfolio/tree/main/projetoappium/projeto1appium) ]1 Apenas utilizando Appium com Java, e Testes em Núvem.
@@ -18,6 +18,8 @@ Neste portfólio conterá:
 
 4. 1 Projeto de Testes de Desempenho com JMeter.
     1. [ _NÃO INICIADO_ ] Fazendo Teste de Carga e Teste de Stress.
+5. 1 Projeto de Testes Web com Cypress:
+   1. [ _EM ANDAMENTO_ ] [ [Link do projeto](https://github.com/nimairodrigues/Portfolio/tree/main/projetoCypress) ] 1 Utilizando Cypress com Cucumber, casos de teste em linguagem Gherkin no método BDD.
 
 
 
