@@ -1,0 +1,1 @@
+# Ao executar este .features, o cypress vai entender que será testado todos os outros features que há nesta pasta.
