@@ -19,6 +19,13 @@ Contém:
 * Os **Casos de Testes** que foram automatizados estão documentados aqui: [[Casos de Testes - planilha do google spreadsheets](https://docs.google.com/spreadsheets/d/1bzm-Yiqudg1vGQ22J5zC5rF6hZ4XdhKG0YBfL_M2gAs/edit?usp=sharing)]
 * O **Relatório de Bugs** dos bugs que foram encontrados estão aqui: [[Relatório de bugs](https://github.com/nimairodrigues/Portfolio/blob/main/projetoCypress/cypress/support/RelatorioDeBugs.md)]
 
+### Execução dos testes:
+* Para executar os testes:
+  1. Baixar o repositório
+  2. Abrir o CMD
+  3. Ir até a pasta raíz do projeto
+  4. Para abrir a interface do Cypress, digitar no cmd: npx cypress open
+  5. Para executar os testes em headless mode: npx cypress run
 
 
 
