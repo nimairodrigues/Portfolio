@@ -19,7 +19,7 @@ Neste portfólio conterá:
 4. 1 Projeto de Testes de Desempenho com JMeter.
     1. [ _NÃO INICIADO_ ] Fazendo Teste de Carga e Teste de Stress.
 5. 1 Projeto de Testes Web com Cypress:
-   1. [ _EM ANDAMENTO_ ] [ [Link do projeto](https://github.com/nimairodrigues/Portfolio/tree/main/projetoCypress) ] 1 Utilizando Cypress com Cucumber, casos de teste em linguagem Gherkin no método BDD.
+   1. [ _CONCLUÍDO_ ] [ [Link do projeto](https://github.com/nimairodrigues/Portfolio/tree/main/projetoCypress) ] 1 Utilizando Cypress com Cucumber, casos de teste em linguagem Gherkin no método BDD.
 
 
 
